@@ -257,7 +257,7 @@ _G.packer_plugins = {
     url = "https://github.com/tweekmonster/startuptime.vim"
   },
   ["surround.nvim"] = {
-    config = { "\27LJ\2\nÔ\2\0\0\6\0\18\0\0296\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\v\0004\4\4\0005\5\b\0>\5\1\0045\5\t\0>\5\2\0045\5\n\0>\5\3\4=\4\f\0034\4\4\0005\5\r\0>\5\1\0045\5\14\0>\5\2\0045\5\15\0>\5\3\4=\4\16\3=\3\17\2B\0\2\1K\0\1\0\npairs\vlinear\1\3\0\0\6\"\6\"\1\3\0\0\6`\6`\1\3\0\0\6'\6'\rnestable\1\0\0\1\3\0\0\6{\6}\1\3\0\0\6[\6]\1\3\0\0\6(\6)\rbrackets\1\4\0\0\6(\6{\6[\vquotes\1\3\0\0\6'\6\"\1\0\5\20map_insert_mode\2\19mappings_style\rsandwich\20load_autogroups\1\19context_offset\3d\vprefix\6s\nsetup\rsurround\frequire\0" },
+    config = { "\27LJ\2\nÔ\2\0\0\6\0\18\0\0296\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\v\0004\4\4\0005\5\b\0>\5\1\0045\5\t\0>\5\2\0045\5\n\0>\5\3\4=\4\f\0034\4\4\0005\5\r\0>\5\1\0045\5\14\0>\5\2\0045\5\15\0>\5\3\4=\4\16\3=\3\17\2B\0\2\1K\0\1\0\npairs\vlinear\1\3\0\0\6\"\6\"\1\3\0\0\6`\6`\1\3\0\0\6'\6'\rnestable\1\0\0\1\3\0\0\6{\6}\1\3\0\0\6[\6]\1\3\0\0\6(\6)\rbrackets\1\4\0\0\6(\6{\6[\vquotes\1\3\0\0\6'\6\"\1\0\5\vprefix\6s\19mappings_style\rsandwich\20load_autogroups\1\19context_offset\3d\20map_insert_mode\2\nsetup\rsurround\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -287,10 +287,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\n‚\2\0\0\n\0\r\0\0236\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\0\0'\2\4\0B\0\2\0026\1\0\0'\3\5\0B\1\2\0029\2\6\1\18\4\2\0009\2\a\2'\5\b\0009\6\t\0005\b\v\0005\t\n\0=\t\f\bB\6\2\0A\2\2\1K\0\1\0\rmap_char\1\0\0\1\0\1\btex\5\20on_confirm_done\17confirm_done\aon\nevent\bcmp\"nvim-autopairs.completion.cmp\1\0\3\16auto_select\2\17map_complete\2\vmap_cr\2\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 try_loadstring("\27LJ\2\n+\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\16plugins/cmp\frequire\0", "config", "nvim-cmp")
@@ -299,6 +295,10 @@ time([[Config for nvim-cmp]], false)
 time([[Config for nvim-colorizer.lua]], true)
 try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22plugins/colorizer\frequire\0", "config", "nvim-colorizer.lua")
 time([[Config for nvim-colorizer.lua]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n‚\2\0\0\n\0\r\0\0236\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\0\0'\2\4\0B\0\2\0026\1\0\0'\3\5\0B\1\2\0029\2\6\1\18\4\2\0009\2\a\2'\5\b\0009\6\t\0005\b\v\0005\t\n\0=\t\f\bB\6\2\0A\2\2\1K\0\1\0\rmap_char\1\0\0\1\0\1\btex\5\20on_confirm_done\17confirm_done\aon\nevent\bcmp\"nvim-autopairs.completion.cmp\1\0\3\16auto_select\2\17map_complete\2\vmap_cr\2\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 try_loadstring("\27LJ\2\n2\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\23plugins/treesitter\frequire\0", "config", "nvim-treesitter")
@@ -310,8 +310,8 @@ time([[Sequenced loading]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TSPlaygroundToggle lua require("packer.load")({'playground'}, { cmd = "TSPlaygroundToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TSHighlightCapturesUnderCursor lua require("packer.load")({'playground'}, { cmd = "TSHighlightCapturesUnderCursor", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TSPlaygroundToggle lua require("packer.load")({'playground'}, { cmd = "TSPlaygroundToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
@@ -319,7 +319,7 @@ vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
 vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'bufferline.nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-lspconfig', 'nvim-tree.lua', 'nvim-treesitter-textobjects', 'commented.nvim', 'indent-blankline.nvim', 'vim-wordmotion', 'neoformat', 'surround.nvim', 'hop.nvim', 'nvim-notify'}, { event = "BufRead *" }, _G.packer_plugins)]]
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'surround.nvim', 'indent-blankline.nvim', 'vim-wordmotion', 'neoformat', 'nvim-lspconfig', 'hop.nvim', 'nvim-notify', 'nvim-tree.lua', 'nvim-treesitter-textobjects', 'commented.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
 vim.cmd [[au VimEnter * ++once lua require("packer.load")({'startuptime.vim', 'telescope.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
