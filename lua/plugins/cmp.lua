@@ -35,6 +35,26 @@ cmp.setup({
 		end,
 	},
 
+  -- TODO ambil dari NvChad cmp config
+     --  formatting = {
+      --  format = function(entry, vim_item)
+         --  -- load lspkind icons
+         --  vim_item.kind = string.format(
+            --  "%s %s",
+            --  require("plugins.lspkind_icons").icons[vim_item.kind],
+            --  vim_item.kind
+         --  )
+
+         --  vim_item.menu = ({
+            --  nvim_lsp = "[LSP]",
+            --  nvim_lua = "[Lua]",
+            --  buffer = "[BUF]",
+         --  })[entry.source.name]
+
+         --  return vim_item
+      --  end,
+   --  },
+
 	mapping = {
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
