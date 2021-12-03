@@ -41,7 +41,7 @@ vim.o.timeoutlen      = 250	        -- Time for mapped sequence to complete (in 
 vim.o.inccommand      = 'nosplit'   -- Incremental live completion
 vim.o.fileencoding    = "utf-8"	    -- Set File Encoding
 vim.o.spelllang       = "en"
-vim.o.completeopt     = "menuone,noselect"  -- Autocompletion
+vim.o.completeopt     = "menu,menuone,noselect"  -- Autocompletion
 vim.opt.shortmess:append { W = true, a = true }
 vim.o.undodir         = vim.fn.stdpath("cache") .. "/undo"
 -- stylua: ignore end

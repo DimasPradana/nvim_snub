@@ -6,7 +6,7 @@ local common_on_attach = utils.common_on_attach
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- Column Sign for Diagnostics
 -- Neovim 0.5+
@@ -47,4 +47,5 @@ require("lsp/jsonls")
 require("lsp/pyright")
 require("lsp/tailwindcss")
 require("lsp/bashls")
+require("lsp/svelte")
 -- require("lsp/null-ls")

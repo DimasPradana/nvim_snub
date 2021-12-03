@@ -132,6 +132,7 @@ return require("packer").startup(function(use)
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-nvim-lua",
 			"saadparwaiz1/cmp_luasnip",
+      "kyazdani42/nvim-web-devicons",
 		},
 		config = function()
 			require("plugins/cmp")
