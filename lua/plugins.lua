@@ -202,6 +202,7 @@ return require("packer").startup(function(use)
 	-- {{{ tokyonight themes
 	use({
 		"folke/tokyonight.nvim",
+		--  event = "VimEnter",
 	}) -- }}}
 
 	-- {{{ indent line
