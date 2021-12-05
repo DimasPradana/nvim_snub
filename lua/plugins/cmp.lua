@@ -1,6 +1,8 @@
 local Utils = require("utils")
 local luasnip = require("luasnip")
 local cmp = require("cmp")
+local cmp_buffer = require("cmp_buffer")
+local lspkind = require("lspkind") -- coba pakai lspkind
 
 local exprinoremap = Utils.exprinoremap
 
@@ -36,19 +38,34 @@ cmp.setup({
 	},
 
 	-- TODO ambil dari NvChad cmp config
+	--  formatting = {
+	--  format = function(entry, vim_item)
+	--  -- load lspkind icons
+	--  vim_item.kind = string.format("%s %s", require("plugins.lspkind_icons").icons[vim_item.kind], vim_item.kind)
+
+	--  vim_item.menu = ({
+	--  nvim_lsp = "[LSP]",
+	--  nvim_lua = "[Lua]",
+	--  buffer = "[BUF]",
+	--  copilot = "[COP]",
+	--  path = "[PATH]",
+	--  })[entry.source.name]
+
+	--  return vim_item
+	--  end,
+	--  },
 	formatting = {
-		format = function(entry, vim_item)
-			-- load lspkind icons
-			vim_item.kind = string.format("%s %s", require("plugins.lspkind_icons").icons[vim_item.kind], vim_item.kind)
-
-			vim_item.menu = ({
-				nvim_lsp = "[LSP]",
-				nvim_lua = "[Lua]",
-				buffer = "[BUF]",
-			})[entry.source.name]
-
-			return vim_item
-		end,
+		format = lspkind.cmp_format({
+			with_text = true,
+			menu = {
+				buffer = "[buf]",
+				nvim_lsp = "[nvim_lsp]",
+				nvim_lua = "[nvim_lua]",
+				path = "[path]",
+				luasnip = "[snip]",
+			},
+			max_width = 50,
+		}),
 	},
 
 	mapping = {
@@ -60,24 +77,24 @@ cmp.setup({
 		["<C-p>"] = cmp.mapping.select_prev_item(),
 		["<C-n>"] = cmp.mapping.select_next_item(),
 
-		["<Tab>"] = function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			else
-				fallback()
-			end
-		end,
-		["<S-Tab>"] = function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
-			else
-				fallback()
-			end
-		end,
+		--  ["<Tab>"] = function(fallback)
+		--  if cmp.visible() then
+		--  cmp.select_next_item()
+		--  elseif luasnip.expand_or_jumpable() then
+		--  luasnip.expand_or_jump()
+		--  else
+		--  fallback()
+		--  end
+		--  end,
+		--  ["<S-Tab>"] = function(fallback)
+		--  if cmp.visible() then
+		--  cmp.select_prev_item()
+		--  elseif luasnip.jumpable(-1) then
+		--  luasnip.jump(-1)
+		--  else
+		--  fallback()
+		--  end
+		--  end,
 
 		["<C-Space>"] = cmp.mapping.complete(),
 
@@ -93,7 +110,26 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "path" },
 		{ name = "nvim_lua" },
-		{ name = "buffer" },
+		{ name = "buffer", keyword_length = 5 },
 		{ name = "copilot" },
 	},
+
+	experimental = {
+		native_menu = false,
+		ghost_text = true,
+	},
+
+	sorting = {
+		comparators = {
+			function(...)
+				return cmp_buffer:compare_locality(...)
+			end,
+			-- The rest of your comparators...
+		},
+	},
+
+	completion = {
+		keyword_length = 3,
+	},
+
 })

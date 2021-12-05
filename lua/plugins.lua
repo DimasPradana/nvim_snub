@@ -133,7 +133,7 @@ return require("packer").startup(function(use)
 			"hrsh7th/cmp-nvim-lua",
 			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-copilot",
-		"onsails/lspkind-nvim",
+			"onsails/lspkind-nvim",
 		},
 		config = function()
 			require("plugins/cmp")
@@ -142,10 +142,10 @@ return require("packer").startup(function(use)
 
 	-- {{{ lspkind - icons
 	--  use({
-		--  "onsails/lspkind-nvim",
-		--  config = function()
-		--  require("plugins/cmp")
-		--  end,
+	--  "onsails/lspkind-nvim",
+	--  config = function()
+	--  require("plugins/cmp")
+	--  end,
 	--  }) -- }}}
 
 	-- {{{ autopairs
