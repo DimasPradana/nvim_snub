@@ -84,7 +84,7 @@ vim.g.loaded_remote_plugins = false
 vim.g.did_load_filetypes = false
 
 -- Colorschemes
--- tokyonight themes
+--  tokyonight themes
 vim.g.tokyonight_style = "night"
 vim.g.tokyonight_italic_functions = true
 vim.g.tokyonight_italic_comments = true

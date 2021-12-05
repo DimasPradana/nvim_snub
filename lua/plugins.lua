@@ -88,7 +88,7 @@ return require("packer").startup(function(use)
 	use({
 		-- "nvim-treesitter/nvim-treesitter",
 		"/home/snub/repos/nvim-treesitter",
-		run = ":TSUpdate",
+		run = ":TSUpdateSync",
 		-- event = "BufRead",
 		requires = {
 			-- debug stuff
@@ -211,7 +211,19 @@ return require("packer").startup(function(use)
 	-- {{{ tokyonight themes
 	use({
 		"folke/tokyonight.nvim",
-		--  event = "VimEnter",
+		--  event = "ColorSchemePre",
+		--  config = function()
+		--  --  require("plugins/tokyonight")
+		--  vim.g.tokyonight_style = "night"
+		--  vim.g.tokyonight_italic_functions = true
+		--  vim.g.tokyonight_italic_comments = true
+		--  vim.g.tokyonight_italic_variables = true
+		--  vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
+		--  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+		--  vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
+		--  -- Load the colorscheme
+		--  vim.cmd([[colorscheme tokyonight]])
+		--  end,
 	}) -- }}}
 
 	-- {{{ indent line
