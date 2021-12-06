@@ -56,7 +56,7 @@ nnoremap("<A-h>", "<cmd>BufferLineCyclePrev<cr>") -- previous -- }}}
 
 -- {{{ packer
 nnoremap("<leader>ps", "<cmd>PackerSync<cr>") -- packer sync
-nnoremap("<leader>pc", "<cmd>PackerCompile<cr>") -- packer sync -- }}}
+nnoremap("<leader>pc", "<cmd>PackerCompile<cr>") -- packer compile -- }}}
 
 -- {{{ node
 nnoremap("<leader>nod", "<cmd>!tmux split-window 'npm run dev'; read;<cr>") -- svelte run development
@@ -67,5 +67,8 @@ nnoremap("<leader>lua", "<cmd>echo 'source lua success' | luafile %<cr>") -- sou
 
 -- {{{ formatter
 nnoremap("<leader>fm", "<cmd>Neoformat<cr>") -- run neoformat -- }}}
+
+-- {{{ searchbox
+-- nnoremap("/", "<cmd>lua require('searchbox').match_all({clear_matches = true})<cr>") -- run searchbox -- }}}
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
