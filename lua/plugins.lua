@@ -183,70 +183,70 @@ return require("packer").startup(function(use)
 		--  "winston0410/commented.nvim",
 		--  event = "BufRead",
 		--  config = function()
-			--  require("plugins/commented")
+		--  require("plugins/commented")
 		--  end,
 
-    "numToStr/Comment.nvim",
-    event = "BufRead",
-    config = function()
-        require('Comment').setup({
----Add a space b/w comment and the line
-    ---@type boolean
-    padding = true,
+		"numToStr/Comment.nvim",
+		event = "BufRead",
+		config = function()
+			require("Comment").setup({
+				---Add a space b/w comment and the line
+				---@type boolean
+				padding = true,
 
-    ---Whether the cursor should stay at its position
-    ---NOTE: This only affects NORMAL mode mappings and doesn't work with dot-repeat
-    ---@type boolean
-    sticky = true,
+				---Whether the cursor should stay at its position
+				---NOTE: This only affects NORMAL mode mappings and doesn't work with dot-repeat
+				---@type boolean
+				sticky = true,
 
-    ---Lines to be ignored while comment/uncomment.
-    ---Could be a regex string or a function that returns a regex string.
-    ---Example: Use '^$' to ignore empty lines
-    ---@type string|function
-    ignore = nil,
+				---Lines to be ignored while comment/uncomment.
+				---Could be a regex string or a function that returns a regex string.
+				---Example: Use '^$' to ignore empty lines
+				---@type string|function
+				ignore = nil,
 
-    ---LHS of toggle mappings in NORMAL + VISUAL mode
-    ---@type table
-    toggler = {
-        ---line-comment keymap
-        line = 'gcc',
-        ---block-comment keymap
-        block = 'gbc',
-    },
+				---LHS of toggle mappings in NORMAL + VISUAL mode
+				---@type table
+				toggler = {
+					---line-comment keymap
+					line = "gcc",
+					---block-comment keymap
+					block = "gbc",
+				},
 
-    ---LHS of operator-pending mappings in NORMAL + VISUAL mode
-    ---@type table
-    opleader = {
-        ---line-comment keymap
-        line = 'gc',
-        ---block-comment keymap
-        block = 'gb',
-    },
+				---LHS of operator-pending mappings in NORMAL + VISUAL mode
+				---@type table
+				opleader = {
+					---line-comment keymap
+					line = "gc",
+					---block-comment keymap
+					block = "gb",
+				},
 
-    ---Create basic (operator-pending) and extended mappings for NORMAL + VISUAL mode
-    ---@type table
-    mappings = {
-        ---operator-pending mapping
-        ---Includes `gcc`, `gbc`, `gc[count]{motion}` and `gb[count]{motion}`
-        ---NOTE: These mappings can be changed individually by `opleader` and `toggler` config
-        basic = true,
-        ---extra mapping
-        ---Includes `gco`, `gcO`, `gcA`
-        extra = true,
-        ---extended mapping
-        ---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
-        extended = false,
-    },
+				---Create basic (operator-pending) and extended mappings for NORMAL + VISUAL mode
+				---@type table
+				mappings = {
+					---operator-pending mapping
+					---Includes `gcc`, `gbc`, `gc[count]{motion}` and `gb[count]{motion}`
+					---NOTE: These mappings can be changed individually by `opleader` and `toggler` config
+					basic = true,
+					---extra mapping
+					---Includes `gco`, `gcO`, `gcA`
+					extra = true,
+					---extended mapping
+					---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
+					extended = false,
+				},
 
-    ---Pre-hook, called before commenting the line
-    ---@type fun(ctx: Ctx):string
-    pre_hook = nil,
+				---Pre-hook, called before commenting the line
+				---@type fun(ctx: Ctx):string
+				pre_hook = nil,
 
-    ---Post-hook, called after commenting is done
-    ---@type fun(ctx: Ctx)
-    post_hook = nil,
-      })
-    end
+				---Post-hook, called after commenting is done
+				---@type fun(ctx: Ctx)
+				post_hook = nil,
+			})
+		end,
 	}) -- }}}
 
 	-- {{{ surround / sandwich
@@ -338,46 +338,62 @@ return require("packer").startup(function(use)
 
 	-- {{{ search box
 	-- use({
- --    "VonHeikemen/searchbox.nvim",
- --    event = "BufRead",
- --    requires = {
- --      {'MunifTanjim/nui.nvim'}
- --    },
- --    config = function()
- --      require("searchbox").setup({
- --        popup = {
- --            relative = 'win',
- --            -- relative = 'cursor',
- --            -- relative = 'editor',
- --            position = {
- --              row = '5%',
- --              col = '95%',
- --            },
- --            size = 30,
- --            border = {
- --              style = 'rounded',
- --              highlight = 'FloatBorder',
- --              text = {
- --                top = ' CARI ',
- --                -- top_align = 'left',
- --                top_align = 'right',
- --              },
- --            },
- --            win_options = {
- --              winhighlight = 'Normal:Normal',
- --            },
- --          },
- --        hooks = {
- --          before_mount = function(input)
- --            -- code
- --          end,
- --          after_mount = function(input)
- --            -- code
- --          end
- --        }
- --      })
- --    end,
+	--    "VonHeikemen/searchbox.nvim",
+	--    event = "BufRead",
+	--    requires = {
+	--      {'MunifTanjim/nui.nvim'}
+	--    },
+	--    config = function()
+	--      require("searchbox").setup({
+	--        popup = {
+	--            relative = 'win',
+	--            -- relative = 'cursor',
+	--            -- relative = 'editor',
+	--            position = {
+	--              row = '5%',
+	--              col = '95%',
+	--            },
+	--            size = 30,
+	--            border = {
+	--              style = 'rounded',
+	--              highlight = 'FloatBorder',
+	--              text = {
+	--                top = ' CARI ',
+	--                -- top_align = 'left',
+	--                top_align = 'right',
+	--              },
+	--            },
+	--            win_options = {
+	--              winhighlight = 'Normal:Normal',
+	--            },
+	--          },
+	--        hooks = {
+	--          before_mount = function(input)
+	--            -- code
+	--          end,
+	--          after_mount = function(input)
+	--            -- code
+	--          end
+	--        }
+	--      })
+	--    end,
 	-- }) -- }}}
+
+	-- {{{ ssh distant
+	use({
+		"chipsenkbeil/distant.nvim",
+		event = "VimEnter",
+		 config = function()
+       require('distant').setup {
+      -- Applies Chip's personal settings to every machine you connect to
+      --
+      -- 1. Ensures that distant servers terminate with no connections
+      -- 2. Provides navigation bindings for remote directories
+      -- 3. Provides keybinding to jump into a remote file's parent directory
+      ['*'] = require('distant.settings').chip_default()
+    }
+		 end,
+	}) -- }}}
 
 	-- TODO neovim bootstraping
 end)
