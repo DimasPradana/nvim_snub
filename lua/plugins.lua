@@ -27,7 +27,7 @@ return require("packer").startup(function(use)
 	-- {{{ Telescope
 	use({
 		-- "nvim-telescope/telescope.nvim",
-		"/home/snub/repos/telescope.nvim",
+		"~/repos/telescope.nvim",
 		event = "VimEnter",
 		requires = {
 			{ "nvim-lua/popup.nvim" },
@@ -72,7 +72,8 @@ return require("packer").startup(function(use)
 
 	-- {{{ lush
 	use({
-		"rktjmp/lush.nvim",
+		-- "rktjmp/lush.nvim",
+		"~/repos/lush.nvim",
 	}) -- }}}
 
 	-- {{{ lspconfig
@@ -124,7 +125,8 @@ return require("packer").startup(function(use)
 
 	-- {{{ cmp
 	use({
-		"hrsh7th/nvim-cmp",
+		-- "hrsh7th/nvim-cmp",
+		"~/repos/nvim-cmp",
 		requires = {
 			"L3MON4D3/LuaSnip",
 			"hrsh7th/cmp-path",
@@ -132,7 +134,8 @@ return require("packer").startup(function(use)
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-nvim-lua",
 			"saadparwaiz1/cmp_luasnip",
-			"hrsh7th/cmp-copilot",
+			-- "hrsh7th/cmp-copilot",
+			"~/repos/cmp-copilot",
 			"onsails/lspkind-nvim",
 		},
 		config = function()
@@ -166,7 +169,8 @@ return require("packer").startup(function(use)
 
 	-- {{{ copilot
 	use({
-		"github/copilot.vim",
+		-- "github/copilot.vim",
+		"~/repos/copilot.vim",
 	}) -- }}}
 
 	-- {{{ colorizer
@@ -383,19 +387,29 @@ return require("packer").startup(function(use)
 	use({
 		"chipsenkbeil/distant.nvim",
 		event = "VimEnter",
-		 config = function()
-       require('distant').setup {
-      -- Applies Chip's personal settings to every machine you connect to
-      --
-      -- 1. Ensures that distant servers terminate with no connections
-      -- 2. Provides navigation bindings for remote directories
-      -- 3. Provides keybinding to jump into a remote file's parent directory
-      ['*'] = require('distant.settings').chip_default()
-    }
-		 end,
+		config = function()
+			require("distant").setup({
+				-- Applies Chip's personal settings to every machine you connect to
+				--
+				-- 1. Ensures that distant servers terminate with no connections
+				-- 2. Provides navigation bindings for remote directories
+				-- 3. Provides keybinding to jump into a remote file's parent directory
+				["*"] = require("distant.settings").chip_default(),
+			})
+		end,
 	}) -- }}}
 
+	-- {{{ null-ls
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		config = function()
+			-- require("null-ls").config({})
+			-- require("lspconfig")["null-ls"].setup({})
+		end,
+		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+	})-- }}}
+
 	-- TODO neovim bootstraping
-end)
+end) 
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
