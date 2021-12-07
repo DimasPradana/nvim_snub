@@ -407,9 +407,11 @@ return require("packer").startup(function(use)
 			-- require("lspconfig")["null-ls"].setup({})
 		end,
 		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-	})-- }}}
+	}) -- }}}
 
+	-- TODO which_key
+	-- TODO nvim dashboard
 	-- TODO neovim bootstraping
-end) 
+end)
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
