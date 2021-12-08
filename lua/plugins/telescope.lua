@@ -29,12 +29,25 @@ require("telescope").setup({
 		-- builtin picker
 		find_files = {
 			theme = "dropdown",
+			prompt_prefix = "🔍",
+			find_command = {
+				"rg",
+				"--ignore",
+				"--hidden",
+				"--files",
+			},
 		},
 		grep_string = {
 			theme = "cursor",
+			find_command = {
+				"ag",
+			},
 		},
 		live_grep = {
 			theme = "dropdown",
+			find_command = {
+				"ag",
+			},
 		},
 		buffers = {
 			theme = "ivy",

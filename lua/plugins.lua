@@ -35,6 +35,7 @@ return require("packer").startup(function(use)
 			-- "nvim-telescope/telescope-frecency.nvim",
 			-- "nvim-telescope/telescope-media-files.nvim",
 			-- "nvim-telescope/telescope-fzy-native.nvim",
+			"nvim-telescope/telescope-symbols.nvim",
 		},
 		config = function()
 			require("plugins/telescope")
@@ -412,6 +413,7 @@ return require("packer").startup(function(use)
 	-- TODO which_key
 	-- TODO nvim dashboard
 	-- TODO neovim bootstraping
+	-- FIXME nvim-lsp code_actions, diagnostics, hover, references, rename, signature, symbol_resolve, workspace_symbol not working yet
 end)
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

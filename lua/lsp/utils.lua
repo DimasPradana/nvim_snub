@@ -6,7 +6,8 @@ vim.cmd([[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]
 function M.common_on_attach(client, bufnr)
 	-- Customize diagnostics
 	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-		virtual_text = false,
+		-- virtual_text = false,
+		virtual_text = true,
 		signs = true,
 		underline = true,
 		update_in_insert = false,
@@ -37,10 +38,12 @@ function M.common_on_attach(client, bufnr)
 	bufnnoremap("<leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>")
 	bufnnoremap("<leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
 
-	-- bufnnoremap("<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
-	-- bufnnoremap("<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
+	bufnnoremap("<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
+	bufnnoremap("<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
 	-- bufnnoremap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 	-- bufnnoremap("v", "<leader>ca", "<cmd>lua vim.lsp.buf.range_code_action()<CR>")
+	bufnnoremap("<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+	bufnnoremap("<leader>ca", "<cmd>lua vim.lsp.buf.range_code_action()<CR>")
 
 	if client.resolved_capabilities.document_formatting then
 		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")

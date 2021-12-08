@@ -13,3 +13,4 @@ require("lspconfig").emmet_ls.setup({
 		require("notify")("LSP emmet aktif pak", "info")
 	end,
 })
+-- local lspconfig = require('lspconfig')
