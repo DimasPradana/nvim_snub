@@ -417,6 +417,7 @@ return require("packer").startup(function(use)
 		config = function()
 			require("which-key").setup({
 				-- TODO config here
+				-- FIXME change all on keymaps file to which-key
 			})
 		end,
 	}) -- }}}
