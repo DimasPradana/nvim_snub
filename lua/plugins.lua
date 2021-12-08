@@ -410,7 +410,17 @@ return require("packer").startup(function(use)
 		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 	}) -- }}}
 
-	-- TODO which_key
+	-- {{{ which key
+	use({
+		"~/repos/which-key.nvim/",
+		event = "VimEnter",
+		config = function()
+			require("which-key").setup({
+				-- TODO config here
+			})
+		end,
+	}) -- }}}
+
 	-- TODO nvim dashboard
 	-- TODO neovim bootstraping
 	-- FIXME nvim-lsp code_actions, diagnostics, hover, references, rename, signature, symbol_resolve, workspace_symbol not working yet
