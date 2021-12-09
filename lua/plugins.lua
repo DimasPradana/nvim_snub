@@ -413,12 +413,9 @@ return require("packer").startup(function(use)
 	-- {{{ which key
 	use({
 		"~/repos/which-key.nvim/",
-		event = "VimEnter",
+		event = "BufWinEnter",
 		config = function()
-			require("which-key").setup({
-				-- TODO config here
-				-- FIXME change all on keymaps file to which-key
-			})
+			require("plugins/which_key")
 		end,
 	}) -- }}}
 
