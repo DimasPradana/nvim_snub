@@ -11,3 +11,5 @@ require("lspconfig").bashls.setup({
 		require("notify")("LSP bashls aktif pak", "info")
 	end,
 })
+
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

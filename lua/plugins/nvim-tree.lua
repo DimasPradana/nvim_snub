@@ -54,3 +54,5 @@ require("nvim-tree").setup({
 		},
 	},
 })
+
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

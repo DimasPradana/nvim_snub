@@ -40,3 +40,5 @@ function M.exprnnoremap(lhs, rhs) M.exprnoremap('n', lhs, rhs) end
 
 return M
 -- stylua: ignore end
+
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

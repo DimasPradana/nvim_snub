@@ -6,3 +6,5 @@ require("lspconfig").intelephense.setup({
 		require("notify")("LSP intelephense aktif pak", "info")
 	end,
 })
+
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

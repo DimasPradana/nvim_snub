@@ -24,3 +24,5 @@ require("commented").setup({
 		ex_mode_cmd = "Comment", -- command for commenting in ex-mode, set it null to not set the comment initially
 	},
 })
+
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

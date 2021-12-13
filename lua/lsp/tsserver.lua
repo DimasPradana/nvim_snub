@@ -28,3 +28,5 @@ require("lspconfig").tsserver.setup({
 		require("notify")("LSP tsserver aktif pak", "info")
 	end,
 })
+
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

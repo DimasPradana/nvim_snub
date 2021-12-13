@@ -51,3 +51,5 @@ function M.common_on_attach(client, bufnr)
 end
 
 return M
+
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

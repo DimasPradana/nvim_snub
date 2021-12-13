@@ -45,3 +45,5 @@ require("lspconfig").gopls.setup({
 		require("notify")("LSP golang aktif pak", "info")
 	end,
 })
+
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

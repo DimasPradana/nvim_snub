@@ -10,3 +10,5 @@ require("lspconfig").cssls.setup({
 		require("notify")("LSP cssls aktif pak", "info")
 	end,
 })
+
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

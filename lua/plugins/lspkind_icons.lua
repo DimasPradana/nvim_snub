@@ -29,3 +29,5 @@ M.icons = {
 }
 
 return M
+
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

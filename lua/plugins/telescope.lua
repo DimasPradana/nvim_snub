@@ -96,3 +96,5 @@ require("telescope").setup({
 		preview_cutoff = 120,
 	},
 })
+
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

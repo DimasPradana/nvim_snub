@@ -35,3 +35,5 @@ require("colorizer").setup({
 	"!vim", -- Exclude vim from highlighting.
 	-- Exclusion Only makes sense if '*' is specified!
 })
+
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

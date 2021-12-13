@@ -10,3 +10,5 @@ require("lspconfig").html.setup({
 		require("notify")("LSP html aktif pak", "info")
 	end,
 })
+
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

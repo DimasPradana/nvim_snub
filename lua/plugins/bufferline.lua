@@ -40,3 +40,5 @@ require("bufferline").setup({
 		end,
 	},
 })
+
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

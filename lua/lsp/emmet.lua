@@ -14,3 +14,5 @@ require("lspconfig").emmet_ls.setup({
 	end,
 })
 -- local lspconfig = require('lspconfig')
+
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

@@ -38,3 +38,5 @@ require("lspconfig").sumneko_lua.setup({
 		require("notify")("LSP lua aktif pak", "info")
 	end,
 })
+
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
