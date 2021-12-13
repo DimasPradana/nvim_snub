@@ -106,6 +106,7 @@ wk.register({
 			name = "Nvimtree",
 			e = { "<CMD>NvimTreeToggle<CR>", "Toggle" },
 			r = { "<CMD>NvimTreeRefresh<CR>", "Refresh" },
+			w = { "<CMD>NvimTreeFocus<CR>", "Focus" },
 		},
 	},
 }) -- }}}
