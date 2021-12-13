@@ -24,7 +24,7 @@ vim.o.expandtab       = true
 vim.o.tabstop         = 2	    -- Tabstop
 vim.o.softtabstop     = 2
 vim.o.shiftwidth      = 2
- vim.o.scrolloff       = 12  	    -- Vertical Scroll Offset
+ vim.o.scrolloff      = 12  	    -- Vertical Scroll Offset
 -- vim.o.scrolloff       = 21  	    -- Vertical Scroll Offset
 vim.o.sidescrolloff   = 8  	    -- Horizontal Scroll Offset
 vim.o.mouse           = 'a'	    -- Enable mouse mode
@@ -42,6 +42,7 @@ vim.o.inccommand      = 'nosplit'   -- Incremental live completion
 vim.o.fileencoding    = "utf-8"	    -- Set File Encoding
 vim.o.spelllang       = "en"
 vim.o.completeopt     = "menu,menuone,noselect,noinsert"  -- Autocompletion
+vim.o.wrap            = false	    -- set no wrap
 vim.opt.shortmess:append { W = true, a = true }
 vim.o.undodir         = vim.fn.stdpath("cache") .. "/undo"
 -- stylua: ignore end
