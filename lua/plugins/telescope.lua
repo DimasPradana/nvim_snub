@@ -59,6 +59,28 @@ require("telescope").setup({
 		--   extension_config_key = value,
 		-- }
 		-- please take a look at the readme of the extension you want to configure
+		-- lsp_handlers = {
+		-- 	disable = {},
+		-- 	location = {
+		-- 		telescope = {},
+		-- 		no_results_message = "No references found",
+		-- 	},
+		-- 	symbol = {
+		-- 		telescope = {},
+		-- 		no_results_message = "No symbols found",
+		-- 	},
+		-- 	call_hierarchy = {
+		-- 		telescope = {},
+		-- 		no_results_message = "No calls found",
+		-- 	},
+		-- 	code_action = {
+		-- 		telescope = {
+		-- 			require("telescope.themes").get_dropdown({}), -- contoh untuk dropdown
+		-- 		},
+		-- 		no_results_message = "No code actions available",
+		-- 		prefix = "",
+		-- 	},
+		-- },
 	},
 	layout_config = {
 		horizontal = {

@@ -36,6 +36,7 @@ return require("packer").startup(function(use)
 			-- "nvim-telescope/telescope-media-files.nvim",
 			-- "nvim-telescope/telescope-fzy-native.nvim",
 			"nvim-telescope/telescope-symbols.nvim",
+			-- "gbrlsnchs/telescope-lsp-handlers.nvim",
 		},
 		config = function()
 			require("plugins/telescope")
