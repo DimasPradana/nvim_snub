@@ -131,4 +131,14 @@ wk.register({
 	},
 }) -- }}}
 
+--{{{refresh brave
+wk.register({
+	["<leader>"] = {
+		r = {
+			"<CMD>!xdotool search --onlyvisible --class Brave windowfocus key F5 && xdotool search --onlyvisible --class Kitty windowfocus<CR>",
+			"Refresh Brave and back to kitty",
+		},
+	},
+}) --}}}
+
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
