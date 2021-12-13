@@ -28,9 +28,9 @@ wk.register({
 			},
 			c = { "<CMD>lua require('telescope.builtin').lsp_code_actions()<CR>", "lsp code actions" },
 			d = {
-				name = "lsp diagnostic", -- FIXME deprecated Please use `Telescope diagnostics`.For more information see `:help telescope.changelog-1553`
-				d = { "<CMD>lua require('telescope.builtin').lsp_document_diagnostics()<CR>", "lsp doc diag" },
-				w = { "<CMD>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>", "lsp work diag" },
+				name = "lsp diagnostic",
+				-- d = { "<CMD>Telescope diagnostics bufnr=0()<CR>", "lsp doc diag" },
+				w = { "<CMD>Telescope diagnostics<CR>", "lsp work diag" },
 			},
 			i = { "<CMD>lua require('telescope.builtin').lsp_implementations()<CR>", "lsp implementation" },
 			e = {
