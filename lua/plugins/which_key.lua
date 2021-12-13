@@ -99,6 +99,16 @@ wk.register({
 	},
 }) -- }}}
 
+-- {{{ golang
+wk.register({
+	["<leader>"] = {
+		g = {
+			name = "go",
+			r = { "<CMD>!go run main.go<CR>", "go run" }, -- go run main
+		},
+	},
+}) -- }}}
+
 -- {{{ nvimtree
 wk.register({
 	["<leader>"] = {
