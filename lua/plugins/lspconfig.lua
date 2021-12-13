@@ -49,6 +49,7 @@ require("lsp/tailwindcss")
 require("lsp/bashls")
 require("lsp/svelte")
 require("lsp/emmet")
+require("lsp/efm")
 -- require("lsp/null-ls")
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
