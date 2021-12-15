@@ -141,7 +141,7 @@ wk.register({
 	},
 }) -- }}}
 
---{{{refresh brave
+--{{{ refresh brave
 wk.register({
 	["<leader>"] = {
 		r = {
@@ -150,5 +150,15 @@ wk.register({
 		},
 	},
 }) --}}}
+
+--{{{ Distant
+-- wk.register({
+-- 	["<leader>"] = {
+-- 		d = {
+--       name = "Distant",
+--       d = { "<CMD>DistantLaunch <CR>", "GIS" },
+-- 		},
+-- 	},
+-- }) --}}}
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
