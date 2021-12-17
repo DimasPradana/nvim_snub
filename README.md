@@ -4,20 +4,26 @@ init.lua from stratch
 
 # plugins
 
-- luasnip
-- bufferline
+- Comment.nvim
+- LuaSnip
+- bufferline.nvim
 - cmp-buffer
+- cmp-copilot
 - cmp-nvim-lsp
 - cmp-nvim-lua
 - cmp-path
-- cmp-luasnip
-- commented.nvim
+- cmp_luasnip
 - copilot.vim
+- distant.nvim
 - filetype.nvim
+- gitsigns.nvim
+- glow.nvim
 - hop.nvim
 - indent-blankline.nvim
+- lspkind-nvim
 - lush.nvim
 - neoformat
+- null-ls.nvim
 - nvim-autopairs
 - nvim-cmp
 - nvim-colorizer.lua
@@ -33,8 +39,10 @@ init.lua from stratch
 - playground
 - plenary.nvim
 - popup.nvim
-- startuptime.nvim
+- startuptime.vim
 - surround.nvim
+- telescope-symbols.nvim
 - telescope.nvim
 - tokyonight.nvim
 - vim-wordmotion
+- which-key.nvim
