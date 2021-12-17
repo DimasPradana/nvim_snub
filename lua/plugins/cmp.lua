@@ -1,10 +1,11 @@
+
 local Utils = require("utils")
 local luasnip = require("luasnip")
 local cmp = require("cmp")
 local cmp_buffer = require("cmp_buffer")
 local lspkind = require("lspkind") -- coba pakai lspkind
 
-local exprinoremap = Utils.exprinoremap
+-- local exprinoremap = Utils.exprinoremap
 
 -- Little hacky function I got from —
 -- https://github.com/L3MON4D3/LuaSnip/blob/master/lua/luasnip/loaders/from_vscode.lua#L173-L180
@@ -36,6 +37,9 @@ cmp.setup({
 			require("luasnip").lsp_expand(args.body)
 		end,
 	},
+	documentation = {
+		border = "solid",
+	},
 
 	-- TODO ambil dari NvChad cmp config
 	--  formatting = {
@@ -63,6 +67,7 @@ cmp.setup({
 				nvim_lua = "[LUA]",
 				path = "[PATH]",
 				luasnip = "[SNIP]",
+				-- vsnip = "[SNIP]",
 			},
 			max_width = 50,
 		}),
@@ -77,24 +82,24 @@ cmp.setup({
 		["<C-p>"] = cmp.mapping.select_prev_item(),
 		["<C-n>"] = cmp.mapping.select_next_item(),
 
-		--  ["<Tab>"] = function(fallback)
-		--  if cmp.visible() then
-		--  cmp.select_next_item()
-		--  elseif luasnip.expand_or_jumpable() then
-		--  luasnip.expand_or_jump()
-		--  else
-		--  fallback()
-		--  end
-		--  end,
-		--  ["<S-Tab>"] = function(fallback)
-		--  if cmp.visible() then
-		--  cmp.select_prev_item()
-		--  elseif luasnip.jumpable(-1) then
-		--  luasnip.jump(-1)
-		--  else
-		--  fallback()
-		--  end
-		--  end,
+		["<Tab>"] = function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			else
+				fallback()
+			end
+		end,
+		["<S-Tab>"] = function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
+		end,
 
 		["<C-Space>"] = cmp.mapping.complete(),
 
@@ -107,7 +112,8 @@ cmp.setup({
 
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
+		{ name = "luasnip", keyword_length = 2 },
+		-- { name = "vsnip", keyword_length = 2 },
 		{ name = "path" },
 		{ name = "nvim_lua" },
 		{ name = "buffer", keyword_length = 5 },
@@ -131,7 +137,6 @@ cmp.setup({
 	completion = {
 		keyword_length = 3,
 	},
-
 })
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

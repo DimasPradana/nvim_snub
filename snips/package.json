@@ -1,0 +1,70 @@
+{
+  "name": "custom-snippets",
+  "engines": {
+    "vscode": "^1.63.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "*"
+        ],
+        "path": "./global.json"
+      },
+      {
+        "language": [
+          "go"
+        ],
+        "path": "./go.json"
+      },
+      {
+        "language": [
+          "html"
+        ],
+        "path": "./html.json"
+      },
+      {
+        "language": [
+          "javascript"
+        ],
+        "path": "./javascript.json"
+      },
+      {
+        "language": [
+          "lua"
+        ],
+        "path": "./lua.json"
+      },
+      {
+        "language": [
+          "php"
+        ],
+        "path": "./php.json"
+      },
+      {
+        "language": [
+          "python"
+        ],
+        "path": "./python.json"
+      },
+      {
+        "language": [
+          "sh"
+        ],
+        "path": "./sh.json"
+      },
+      {
+        "language": [
+          "sql"
+        ],
+        "path": "./sql.json"
+      },
+      {
+        "language": [
+          "tex"
+        ],
+        "path": "./tex.json"
+      }
+    ]
+  }
+}

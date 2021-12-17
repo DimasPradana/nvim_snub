@@ -136,6 +136,19 @@ return require("packer").startup(function(use)
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-nvim-lua",
 			"saadparwaiz1/cmp_luasnip",
+			-- "hrsh7th/cmp-vsnip", -- coba pake vsnip
+       -- {
+       --    "hrsh7th/vim-vsnip",
+       --    setup = function()
+       --      vim.cmd [[
+       --        " Jump forward or backward
+       --        imap <expr> <C-j> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-j>'
+       --        smap <expr> <C-j> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-j>'
+       --        imap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
+       --        smap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
+       --      ]]
+       --    end,
+       --  },
 			-- "hrsh7th/cmp-copilot",
 			"~/repos/cmp-copilot",
 			"onsails/lspkind-nvim",
