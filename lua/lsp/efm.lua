@@ -10,7 +10,7 @@ require("lspconfig").efm.setup({
 			},
 		},
 	},
-	filetypes = { "lua" },
+	filetypes = { 'python', 'cpp', 'lua' },
 	cmd = { "efm-langserver" },
 	root_dir = c.custom_cwd,
 	single_file_support = false,
