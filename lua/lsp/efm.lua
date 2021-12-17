@@ -6,11 +6,15 @@ require("lspconfig").efm.setup({
 		rootMarkers = { ".git/" },
 		languages = {
 			lua = {
-				{ formatCommand = "lua-format -i", formatStdin = true },
+				{
+					formatCommand = "lua-format -i",
+					formatStdin = true,
+				},
 			},
 		},
 	},
-	filetypes = { 'python', 'cpp', 'lua' },
+	-- You must populate this according to the EFM readme
+	filetypes = { "python", "cpp", "lua" },
 	cmd = { "efm-langserver" },
 	root_dir = c.custom_cwd,
 	single_file_support = false,
