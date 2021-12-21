@@ -130,26 +130,28 @@ return require("packer").startup(function(use)
 		-- "hrsh7th/nvim-cmp",
 		"~/repos/nvim-cmp",
 		requires = {
-			-- "L3MON4D3/LuaSnip",
+			"L3MON4D3/LuaSnip",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-nvim-lua",
-			-- "saadparwaiz1/cmp_luasnip",
-			"hrsh7th/cmp-vsnip", -- coba pake vsnip
-			"hrsh7th/vim-vsnip-integ", -- vsnip
-			{
-				"~/repos/vim-vsnip",
-				setup = function()
-					vim.cmd([[
-              " Jump forward or backward
-              imap <expr> <C-j> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-j>'
-              smap <expr> <C-j> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-j>'
-              imap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
-              smap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
-            ]])
-				end,
-			},
+			"saadparwaiz1/cmp_luasnip",
+			-- "hrsh7th/cmp-vsnip", -- coba pake vsnip
+			-- {
+			-- 	"~/repos/vim-vsnip",
+			-- 	setup = function()
+			-- 		vim.cmd([[
+   --            " Jump forward or backward
+   --            imap <expr> <C-j> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-j>'
+   --            smap <expr> <C-j> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-j>'
+   --            imap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
+   --            smap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
+   --          " Expand
+   --          imap <expr> <C-n>   vsnip#expandable()  ? '<Plug>(vsnip-expand)' : '<C-n>'
+   --          ]])
+			-- 	end,
+			-- },
+			-- { "hrsh7th/vim-vsnip-integ", after = { "~/repos/vim-vsnip" } }, -- vsnip
 			-- "hrsh7th/cmp-copilot",
 			"~/repos/cmp-copilot",
 			"onsails/lspkind-nvim",
