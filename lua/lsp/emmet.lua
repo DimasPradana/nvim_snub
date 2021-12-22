@@ -1,14 +1,20 @@
 local c = require("lsp/utils")
 
 require("lspconfig").emmet_ls.setup({
-  cmd = {
-    "emmet_ls", "--stdio"
-  },
-  filetypes = {
-    "html",
-    "css",
-    "svelte",
-  },
+	cmd = {
+		"emmet-ls",
+		"--stdio",
+	},
+	filetypes = {
+		"html",
+		"css",
+		"svelte",
+		"blade",
+	},
+  root_dir = function(fname)
+    return vim.loop.cwd()
+  end,
+  settings = {},
 	on_attach = function()
 		require("notify")("LSP emmet aktif pak", "info")
 	end,

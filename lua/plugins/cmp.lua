@@ -29,6 +29,10 @@ vim.b.copilot_enabled = false
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
 
+-- emmet_ls
+vim.g.emmet_ls_enabled = true
+vim.g.completion_trigger_characters = { ">", "." }
+
 vim.api.nvim_set_keymap("i", "<right>", 'copilot#Accept("")', { expr = true, silent = true })
 
 cmp.setup({
