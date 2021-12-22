@@ -320,13 +320,13 @@ return require("packer").startup(function(use)
 	}) -- }}}
 
 	-- {{{ formatter
-	use({
-		"sbdchd/neoformat",
-		event = "BufRead",
-		--  config = function()
-		--  require("plugins/blankline")
-		--  end,
-	}) -- }}}
+	-- use({
+	-- 	"sbdchd/neoformat",
+	-- 	event = "BufRead",
+	-- 	--  config = function()
+	-- 	--  require("plugins/blankline")
+	-- 	--  end,
+	-- }) -- }}}
 
 	-- {{{ nvim notify
 	use({
@@ -420,10 +420,11 @@ return require("packer").startup(function(use)
 	-- {{{ null-ls
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
-		config = function()
+    -- cmd = "null_ls",
+		-- config = function()
 			-- require("null-ls").config({})
 			-- require("lspconfig")["null-ls"].setup({})
-		end,
+		-- end,
 		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 	}) -- }}}
 

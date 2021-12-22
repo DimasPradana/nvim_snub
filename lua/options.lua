@@ -98,10 +98,16 @@ vim.cmd([[colorscheme tokyonight]])
 
 -- formatter on save
 vim.api.nvim_exec(
+-- 	[[
+-- augroup FormatAutogroup
+--   autocmd!
+--   autocmd BufWritePost * undojoin | Neoformat
+-- augroup END
+-- ]],
 	[[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost * undojoin | Neoformat
+  autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
 augroup END
 ]],
 	true
