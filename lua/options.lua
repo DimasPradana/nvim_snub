@@ -107,7 +107,7 @@ vim.api.nvim_exec(
 	[[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+  autocmd BufWritePost * undojoin | lua vim.lsp.buf.formatting_sync()
 augroup END
 ]],
 	true
