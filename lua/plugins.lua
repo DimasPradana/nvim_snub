@@ -1,5 +1,6 @@
 vim.cmd([[packadd packer.nvim]]) -- Load Packer
 
+
 return require("packer").startup(function(use)
 	-- {{{ Packer
 	use({
@@ -153,7 +154,9 @@ return require("packer").startup(function(use)
 					--        ]])
 				end,
 			},
-			{ "hrsh7th/vim-vsnip-integ", after = { "~/repos/vim-vsnip/" } }, -- vsnip
+			{
+				"hrsh7th/vim-vsnip-integ",
+			}, -- vsnip
 			"hrsh7th/cmp-vsnip", -- coba pake vsnip
 			-- "hrsh7th/cmp-copilot",
 			"~/repos/cmp-copilot",
