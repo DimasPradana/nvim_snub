@@ -47,17 +47,6 @@ vim.opt.shortmess:append { W = true, a = true }
 vim.o.undodir         = vim.fn.stdpath("cache") .. "/undo"
 -- stylua: ignore end
 
--- Highlight on yank
-vim.api.nvim_exec(
-	[[
-augroup YankHighlight
-autocmd!
-autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-augroup end
-]],
-	false
-)
-
 -- Disable some default plugins
 vim.g.loaded_2html_plugin = false
 
@@ -92,18 +81,19 @@ vim.g.tokyonight_italic_comments = true
 vim.g.tokyonight_italic_variables = true
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
+-- vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
+vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000", bg_popup = "blue7" }
 -- Load the colorscheme
 vim.cmd([[colorscheme tokyonight]])
 
 -- formatter on save
 vim.api.nvim_exec(
--- 	[[
--- augroup FormatAutogroup
---   autocmd!
---   autocmd BufWritePost * undojoin | Neoformat
--- augroup END
--- ]],
+	-- 	[[
+	-- augroup FormatAutogroup
+	--   autocmd!
+	--   autocmd BufWritePost * undojoin | Neoformat
+	-- augroup END
+	-- ]],
 	[[
 augroup FormatAutogroup
   autocmd!
@@ -111,6 +101,16 @@ augroup FormatAutogroup
 augroup END
 ]],
 	true
+)
+-- Highlight on yank
+vim.api.nvim_exec(
+	[[
+augroup YankHighlight
+autocmd!
+autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+augroup END
+]],
+	false
 )
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
