@@ -17,7 +17,8 @@ nnoremap("<A-j>", ":bd<CR>") -- }}}
 
 -- {{{ jk to normal mode
 inoremap("jk", "<Esc>")
-tnoremap("jk", "<C-\\><C-n>") -- }}}
+tnoremap("jk", "<C-\\><C-n>")
+vnoremap("jk", "<Esc>") -- }}}
 
 -- {{{ Yank to end of line
 nnoremap("Y", "y$") -- }}}
