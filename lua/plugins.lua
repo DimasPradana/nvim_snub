@@ -468,6 +468,16 @@ return require("packer").startup(function(use)
 		end,
 	}) -- }}}
 
+	-- {{{ lualine
+	use({
+		"~/repos/lualine.nvim",
+		event = "VimEnter",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		config = function()
+			require("plugins/lualine")
+		end,
+	}) --}}}
+
 	-- TODO nvim dashboard
 	-- TODO neovim bootstraping
 	-- FIXME nvim-lsp code_actions, diagnostics, hover, references, rename, signature, symbol_resolve, workspace_symbol not working yet

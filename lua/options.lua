@@ -75,9 +75,10 @@ vim.g.did_load_filetypes = false
 
 -- Colorschemes
 --  tokyonight themes
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_italic_functions = true
+vim.g.tokyonight_style = "storm" -- storm, night, or day
 vim.g.tokyonight_italic_comments = true
+vim.g.tokyonight_italic_keywords = true
+vim.g.tokyonight_italic_functions = true
 vim.g.tokyonight_italic_variables = true
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 -- Change the "hint" color to the "orange" color, and make the "error" color bright red
