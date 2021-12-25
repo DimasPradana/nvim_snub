@@ -18,8 +18,8 @@ nnoremap("<A-j>", ":bd<CR>") -- }}}
 -- {{{ jk to normal mode
 inoremap("jk", "<Esc>")
 tnoremap("jk", "<C-\\><C-n>")
-cnoremap("jk", "<Esc>")
-vnoremap("jk", "<Esc>") -- }}}
+cnoremap("jk", "<Esc>") -- }}}
+-- vnoremap("jk", "<Esc>") -- }}} -- make lagging ;(
 
 -- {{{ Yank to end of line
 nnoremap("Y", "y$") -- }}}
