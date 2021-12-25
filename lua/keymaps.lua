@@ -6,7 +6,7 @@ local vnoremap = Utils.vnoremap
 -- local xnoremap = Utils.xnoremap
 local inoremap = Utils.inoremap
 local tnoremap = Utils.tnoremap
--- local cnoremap = Utils.cnoremap
+local cnoremap = Utils.cnoremap
 -- local nmap = Utils.tnoremap
 
 vim.g.mapleader = " "
@@ -18,6 +18,7 @@ nnoremap("<A-j>", ":bd<CR>") -- }}}
 -- {{{ jk to normal mode
 inoremap("jk", "<Esc>")
 tnoremap("jk", "<C-\\><C-n>")
+cnoremap("jk", "<Esc>")
 vnoremap("jk", "<Esc>") -- }}}
 
 -- {{{ Yank to end of line
