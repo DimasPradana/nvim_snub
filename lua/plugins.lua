@@ -137,6 +137,7 @@ return require("packer").startup(function(use)
 	use({
 		-- "hrsh7th/nvim-cmp",
 		"~/repos/nvim-cmp",
+		-- event = "CursorMove",
 		requires = {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-buffer",
@@ -433,6 +434,7 @@ return require("packer").startup(function(use)
 	-- {{{ null-ls
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
+    -- event = "BufRead",
 		-- cmd = "null_ls",
 		-- config = function()
 		-- require("null-ls").config({})

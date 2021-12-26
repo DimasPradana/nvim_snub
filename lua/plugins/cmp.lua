@@ -1,3 +1,5 @@
+vim.cmd([[ packadd nvim-cmp ]])
+
 local cmp = require("cmp")
 local cmp_buffer = require("cmp_buffer")
 local lspkind = require("lspkind") -- coba pakai lspkind

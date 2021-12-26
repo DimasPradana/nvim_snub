@@ -9,7 +9,7 @@ vim.wo.number         = true 	-- Display Line Number
 vim.wo.relativenumber = true 	-- Make relative line numbers default
 vim.o.termguicolors   = true	-- Set Terminal Colors
 -- vim.o.title           = true    -- Display File Info on Title
-vim.o.showmode        = true	-- Show MODES
+vim.o.showmode        = false	-- Show MODES
 vim.wo.signcolumn     = 'yes'	-- Sign Column
 
 -- Behavior
@@ -75,7 +75,7 @@ vim.g.did_load_filetypes = false
 
 -- Colorschemes
 --  tokyonight themes
-vim.g.tokyonight_style = "storm" -- storm, night, or day
+vim.g.tokyonight_style = "night" -- storm, night, or day
 vim.g.tokyonight_italic_comments = true
 vim.g.tokyonight_italic_keywords = true
 vim.g.tokyonight_italic_functions = true
