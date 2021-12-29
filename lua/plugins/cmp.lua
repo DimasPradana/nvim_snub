@@ -63,12 +63,12 @@ cmp.setup({
 
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "vsnip", keyword_length = 2 },
+		{ name = "vsnip", keyword_length = 1 },
 		{ name = "path" },
 		{ name = "nvim_lua" },
 		{
 			name = "buffer",
-			keyword_length = 5,
+			keyword_length = 6,
 			option = {
 				get_bufnrs = function()
 					return { vim.api.nvim_get_current_buf() }
