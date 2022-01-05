@@ -39,22 +39,22 @@ for _, lsp in ipairs(servers) do
 end
 
 -- null-ls config
-local null_ls = require("null-ls")
-require("null-ls").setup({
-	sources = {
-		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.diagnostics.eslint,
-		null_ls.builtins.completion.spell,
-    null_ls.builtins.formatting.prettier.with({
-      filetypes = {"html", "json", "lua", "markdown", "php", "typescript", "yaml", "blade", "svelte"},
-    })
-	},
-	-- on_attach = function(client)
-	-- 	if client.resolved_capabilities.documet_formatting then
-	-- 		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-	-- 	end
-	-- end,
-})
+-- local null_ls = require("null-ls")
+-- require("null-ls").setup({
+	-- sources = {
+		-- null_ls.builtins.formatting.stylua,
+		-- null_ls.builtins.diagnostics.eslint,
+		-- null_ls.builtins.completion.spell,
+    -- null_ls.builtins.formatting.prettier.with({
+      -- filetypes = {"html", "json", "lua", "markdown", "php", "typescript", "yaml", "blade", "svelte"},
+    -- })
+	-- },
+	-- -- on_attach = function(client)
+	-- -- 	if client.resolved_capabilities.documet_formatting then
+	-- -- 		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+	-- -- 	end
+	-- -- end,
+-- })
 
 require("lsp/tsserver")
 require("lsp/gopls")

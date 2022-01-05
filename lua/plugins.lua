@@ -334,13 +334,13 @@ return require("packer").startup(function(use)
 	}) -- }}}
 
 	-- {{{ formatter
-	-- use({
-	-- 	"sbdchd/neoformat",
-	-- 	event = "BufRead",
-	-- 	--  config = function()
-	-- 	--  require("plugins/blankline")
-	-- 	--  end,
-	-- }) -- }}}
+	use({
+		"sbdchd/neoformat",
+		event = "BufRead",
+		--  config = function()
+		--  require("plugins/blankline")
+		--  end,
+	}) -- }}}
 
 	-- {{{ nvim notify
 	use({
