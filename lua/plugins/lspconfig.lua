@@ -30,8 +30,7 @@ for _, sign in ipairs(signs) do
 end
 
 -- Enable the following language servers
--- local servers = { "clangd", "pyright", "cssls", "jsonls", "html" }
-local servers = { "clangd", "pyright", "jsonls", "html" }
+local servers = { "clangd", "pyright", "cssls", "jsonls", "html" }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = common_on_attach,
@@ -62,7 +61,7 @@ require("lsp/gopls")
 require("lsp/sumneko")
 require("lsp/intelephense")
 require("lsp/html")
--- require("lsp/cssls")
+require("lsp/cssls")
 require("lsp/jsonls")
 require("lsp/pyright")
 require("lsp/tailwindcss")
