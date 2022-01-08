@@ -48,8 +48,18 @@
   "sfold": {
     "prefix": ["snubfold"],
     "body": [
-      "$LINE_COMMENT vim:fileencoding=utf-8:ft=${1:filetype}:foldmethod=marker"
+      "$LINE_COMMENT vim:fileencoding=utf-8:ft=${1:$TM_FILENAME}:foldmethod=marker"
     ],
     "description": "snub for vim fold"
+  },
+  "spath": {
+    "prefix": ["snubpath"],
+    "body": ["$LINE_COMMENT $TM_FILEPATH"],
+    "description": "snub file path"
+  },
+  "srelpath": {
+    "prefix": ["snubrelativepath"],
+    "body": ["$LINE_COMMENT $RELATIVE_FILEPATH"],
+    "description": "snub relative file path"
   }
 }
