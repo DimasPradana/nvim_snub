@@ -102,11 +102,11 @@ require("nvim-treesitter.configs").setup({
 			show_help = "?",
 		},
 	},
-	-- context_commentstring = {
-	--   enable = true,
-	--   -- This plugin provided an autocommand option
-	--   enable_autocmd = true,
-	-- }
+	context_commentstring = {
+	  enable = true,
+	  -- This plugin provided an autocommand option
+	  -- enable_autocmd = true,
+	}
 })
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
