@@ -1,4 +1,5 @@
-local c = require("lsp/utils")
+-- local c = require("lsp/utils")
+local nvim_lsp = require("lspconfig")
 
 require("lspconfig").tailwindcss.setup({
 	cmd = { "tailwindcss-language-server", "--stdio" },
@@ -66,10 +67,19 @@ require("lspconfig").tailwindcss.setup({
 		end
 	end,
 	-- root_dir = root_pattern('tailwind.config.js', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.ts', 'package.json', 'node_modules', '.git'),
-	root_dir = c.custom_cwd,
-	-- root_dir = root_pattern('tailwind.config.js', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.ts', 'package.json', 'node_modules', '.git'),
+	-- root_dir = c.custom_cwd,
+	root_dir = nvim_lsp.util.root_pattern(
+		"tailwind.config.js",
+		"tailwind.config.ts",
+		"postcss.config.js",
+		"postcss.config.ts",
+		"package.json",
+		"node_modules",
+		".git"
+	),
 	settings = {
 		tailwindCSS = {
+			classAttributes = { "class", "className", "classList", "ngClass" },
 			lint = {
 				cssConflict = "warning",
 				invalidApply = "error",
