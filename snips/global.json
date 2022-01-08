@@ -52,6 +52,16 @@
     ],
     "description": "snub for vim fold"
   },
+  "ssfold": {
+    "prefix": ["snubStartFold"],
+    "body": ["$LINE_COMMENT {{{ ${1:description}"],
+    "description": "snub start vim fold"
+  },
+  "sefold": {
+    "prefix": ["snubEndFold"],
+    "body": ["$LINE_COMMENT }}}"],
+    "description": "snub end vim fold"
+  },
   "spath": {
     "prefix": ["snubpath"],
     "body": ["$LINE_COMMENT $TM_FILEPATH"],
