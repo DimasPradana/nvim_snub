@@ -127,6 +127,24 @@ return require("packer").startup(function(use)
 				"nvim-treesitter/nvim-treesitter-refactor",
 				after = "nvim-treesitter",
 			},
+
+			-- autotag
+			{
+				"windwp/nvim-ts-autotag",
+				after = "nvim-treesitter",
+			},
+
+			-- docs
+			{
+				"nvim-treesitter/nvim-tree-docs",
+				after = "nvim-treesitter",
+			},
+
+			-- query
+			{
+				"nvim-treesitter/tree-sitter-query",
+				after = "nvim-treesitter",
+			},
 		},
 		config = function()
 			require("plugins/treesitter")
@@ -434,7 +452,7 @@ return require("packer").startup(function(use)
 	-- {{{ null-ls
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
-    -- event = "BufRead",
+		-- event = "BufRead",
 		-- cmd = "null_ls",
 		-- config = function()
 		-- require("null-ls").config({})
