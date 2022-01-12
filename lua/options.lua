@@ -84,23 +84,24 @@ vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 -- Change the "hint" color to the "orange" color, and make the "error" color bright red
 -- vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
 vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000", bg_popup = "blue7" }
+-- vim.g.tokyonight_colors = { bg_popup = "blue7" }
 -- Load the colorscheme
 vim.cmd([[colorscheme tokyonight]])
 
 -- formatter on save
 vim.api.nvim_exec(
-		[[
+	[[
 	augroup FormatAutogroup
 	  autocmd!
 	  autocmd BufWritePost * undojoin | Neoformat
 	augroup END
 	]],
--- 	[[
--- augroup FormatAutogroup
---   autocmd!
---   autocmd BufWritePost * undojoin | lua vim.lsp.buf.formatting_sync()
--- augroup END
--- ]],
+	-- 	[[
+	-- augroup FormatAutogroup
+	--   autocmd!
+	--   autocmd BufWritePost * undojoin | lua vim.lsp.buf.formatting_sync()
+	-- augroup END
+	-- ]],
 	true
 )
 -- Highlight on yank

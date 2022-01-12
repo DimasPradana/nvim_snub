@@ -1,7 +1,9 @@
 {
   "todo": {
     "prefix": ["todo"],
-    "body": ["TODO(${1:Name}): ${0:Summary}"],
+    "body": [
+      "$LINE_COMMENT ${1:todo}: ${2:description} by ${VIM:\\$USER} on $CURRENT_DAY_NAME_SHORT $CURRENT_DATE $CURRENT_MONTH_NAME_SHORT $CURRENT_YEAR $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND ${0:status}"
+    ],
     "description": "TODO reminder"
   },
   "fixme": {

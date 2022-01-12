@@ -47,6 +47,7 @@ wk.register({
 	["<leader>"] = {
 		f = {
 			name = "Telescope",
+			d = { "<CMD>TodoTelescope<CR>", "todo comments using telescope" },
 			f = { "<CMD>lua require('telescope.builtin').find_files()<CR>", "find files" },
 			g = { "<CMD>lua require('telescope.builtin').grep_string()<CR>", "grep string" },
 			w = { "<CMD>lua require('telescope.builtin').live_grep()<CR>", "live grep" },
@@ -161,6 +162,5 @@ wk.register({
 -- 		},
 -- 	},
 -- }) --}}}
-
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

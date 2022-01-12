@@ -37,12 +37,12 @@ require("telescope").setup({
 				"--files",
 			},
 		},
-		grep_string = {
+		--[[ grep_string = {
 			theme = "cursor",
 			find_command = {
 				"ag",
 			},
-		},
+		}, ]]
 		live_grep = {
 			theme = "dropdown",
 			find_command = {
