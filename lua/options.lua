@@ -115,4 +115,11 @@ augroup END
 	false
 )
 
+-- show line diagnostics on hover
+-- vim.o.updatetime = 250
+vim.cmd(
+	-- [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, anchor='NW', border='single', relative='cursor'})]],
+	[[autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false, anchor='NW', border='single', relative='cursor', width=100})]]
+)
+
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
