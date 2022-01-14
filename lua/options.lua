@@ -24,10 +24,11 @@ vim.o.expandtab       = true
 vim.o.tabstop         = 2	    -- Tabstop
 vim.o.softtabstop     = 2
 vim.o.shiftwidth      = 2
- vim.o.scrolloff      = 12  	    -- Vertical Scroll Offset
+vim.o.scrolloff       = 12  	    -- Vertical Scroll Offset
 -- vim.o.scrolloff       = 21  	    -- Vertical Scroll Offset
 vim.o.sidescrolloff   = 8  	    -- Horizontal Scroll Offset
 vim.o.mouse           = 'a'	    -- Enable mouse mode
+
 
 -- Vim specific
 vim.o.hidden          = true	    -- Do not save when switching buffers
@@ -117,9 +118,9 @@ augroup END
 
 -- show line diagnostics on hover
 -- vim.o.updatetime = 250
-vim.cmd(
-	-- [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, anchor='NW', border='single', relative='cursor'})]],
-	[[autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false, anchor='NW', border='single', relative='cursor', width=100})]]
-)
+-- vim.cmd(
+-- 	-- [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, anchor='NW', border='single', relative='cursor'})]],
+-- 	[[autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false, anchor='NW', border='single', relative='cursor', width=100})]]
+-- )
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
