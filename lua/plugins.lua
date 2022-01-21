@@ -572,6 +572,15 @@ return require("packer").startup(function(use)
 		end,
 	}) --}}}
 
+	-- {{{ pretty-fold
+	--[[ use({
+		"anuvyklack/pretty-fold.nvim",
+		event = "BufRead",
+		config = function()
+			require("plugins/pretty-fold")
+		end,
+	}) --}}} ]]
+
 	-- TODO: nvim dashboard
 	-- TODO: neovim bootstraping
 	-- FIXME: nvim-lsp code_actions, diagnostics, hover, references, rename, signature, symbol_resolve, workspace_symbol not working yet

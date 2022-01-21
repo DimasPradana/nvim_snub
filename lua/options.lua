@@ -4,13 +4,25 @@
 vim.o.conceallevel    = 0 	    -- Make `` Visible in Markdown
 vim.o.cmdheight       = 1	    -- Better Error Messages
 vim.o.showtabline     = 2 	    -- Always Show Tabline
-vim.o.pumheight       = 10      -- Pop up Menu Height
+vim.o.pumheight       = 5      -- Pop up Menu Height
 vim.wo.number         = true 	-- Display Line Number
 vim.wo.relativenumber = true 	-- Make relative line numbers default
 vim.o.termguicolors   = true	-- Set Terminal Colors
 -- vim.o.title           = true    -- Display File Info on Title
 vim.o.showmode        = false	-- Show MODES
 vim.wo.signcolumn     = 'yes'	-- Sign Column
+-- folding
+-- vim.wo.foldenable     = true	-- Enable Folding
+-- vim.wo.foldmethod     = 'expr'	-- Folding Method
+-- vim.wo.foldexpr       = 'nvim_treesitter#foldexpr()'	-- Folding Expression
+-- vim.wo.foldmethod='expr'
+vim.wo.foldexpr='nvim_treesitter#foldexpr()'
+vim.wo.foldtext='MyFoldText()'
+-- vim.wo.foldtext=[[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) ]]
+-- vim.wo.fillchars = "fold:\\"
+vim.wo.foldnestmax = 3
+vim.wo.foldminlines = 1
+
 
 -- Behavior
 vim.o.hlsearch        = false 	-- Set highlight on search
@@ -122,5 +134,15 @@ augroup END
 -- 	-- [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, anchor='NW', border='single', relative='cursor'})]],
 -- 	[[autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false, anchor='NW', border='single', relative='cursor', width=100})]]
 -- )
+
+vim.cmd([[
+	function! MyFoldText()
+		let line = getline(v:foldstart)
+		let folded_line_num = v:foldend - v:foldstart
+		let line_text = substitute(line, '^"{\+', '', 'g')
+		let fillcharcount = &textwidth - len(line_text) - len(folded_line_num)
+		return '+'. repeat('-', 4) . line_text . repeat('.', fillcharcount) . ' (' . folded_line_num . ' L)'
+	endfunction
+]])
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
