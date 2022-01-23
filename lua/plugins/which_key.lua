@@ -163,4 +163,11 @@ wk.register({
 -- 	},
 -- }) --}}}
 
+--{{{ toggle indent blank line
+wk.register({
+	["<leader>"] = {
+		i = { "<CMD>IndentBlanklineToggle<CR>", "IndentBlankline" }, -- Toggle indent blank line
+	},
+}) --}}}
+
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
