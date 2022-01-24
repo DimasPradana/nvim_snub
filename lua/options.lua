@@ -145,4 +145,40 @@ vim.cmd([[
 	endfunction
 ]])
 
+-- NOTE: masukkan plugins ketika VimEnter
+-- function load_plugins()
+-- 	vim.cmd([[
+--     packadd nvim-treesitter
+--     packadd nvim-ts-autotag
+--     packadd playground
+--
+--     lua print("vim enter")
+--
+--     runtime! OPT after/plugin/*.vim
+--     doautocmd User PluginsLoaded
+--   ]])
+-- end
+--
+-- vim.cmd([[
+--   augroup user_cmds
+--     autocmd!
+--     autocmd VimEnter * lua vim.defer_fn(load_plugins, 1000)
+--   augroup END
+-- ]])
+
+-- NOTE: cabbrev from W to w
+vim.cmd([[
+	cnoreabbrev W! w!
+	cnoreabbrev Q! q!
+	cnoreabbrev Qall! qall!
+	cnoreabbrev Wq wq
+	cnoreabbrev Wa wa
+	cnoreabbrev wQ wq
+	cnoreabbrev WQ wq
+	cnoreabbrev W w
+	cnoreabbrev Q q
+	cnoreabbrev Qa qa
+	cnoreabbrev Qall qall
+]])
+
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
