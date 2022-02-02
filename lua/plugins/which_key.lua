@@ -166,7 +166,19 @@ wk.register({
 --{{{ toggle indent blank line
 wk.register({
 	["<leader>"] = {
-		i = { "<CMD>IndentBlanklineToggle<CR>", "IndentBlankline" }, -- Toggle indent blank line
+		i = { "<CMD>IndentBlanklineToggle<CR>", "Toggle IndentBlankline" }, -- Toggle indent blank line
+	},
+}) --}}}
+
+--{{{ toggle list char
+wk.register({
+	["<leader>"] = {
+		w = {
+			name = "list",
+			e = { "<CMD>set list<CR>", "Set List" },
+			d = { "<CMD>set nolist<CR>", "Set No List" },
+			l = { "<CMD>set listchars<CR>", "show listchars" },
+		},
 	},
 }) --}}}
 

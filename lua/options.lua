@@ -102,8 +102,7 @@ vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000", bg_popup = "blue
 vim.cmd([[colorscheme tokyonight]])
 
 -- formatter on save
-vim.api.nvim_exec(
-	[[
+vim.api.nvim_exec([[
 	augroup FormatAutogroup
 	  autocmd!
 	  autocmd BufWritePost * undojoin | Neoformat
@@ -118,15 +117,12 @@ vim.api.nvim_exec(
 	true
 )
 -- Highlight on yank
-vim.api.nvim_exec(
-	[[
-augroup YankHighlight
-autocmd!
-autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-augroup END
-]],
-	false
-)
+vim.api.nvim_exec([[
+  augroup YankHighlight
+    autocmd!
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+  augroup END
+]], false)
 
 -- show line diagnostics on hover
 -- vim.o.updatetime = 250
