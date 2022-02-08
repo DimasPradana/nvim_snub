@@ -152,6 +152,16 @@ require("nvim-treesitter.configs").setup({
 					end,
 				},
 			},
+			lua = {
+				slots = {
+					class = { author = true },
+				},
+				processors = {
+					author = function()
+						return " * @author SNUB"
+					end,
+				},
+			},
 		},
 	},
 })
