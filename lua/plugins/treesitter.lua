@@ -83,6 +83,28 @@ require("nvim-treesitter.configs").setup({
 				["[]"] = "@class.outer",
 			},
 		},
+		swap = {},
+		lsp_interop = {},
+		--[[ builtn-in :
+        @block.inner
+        @block.outer
+        @call.inner
+        @call.outer
+        @class.inner
+        @class.outer
+        @comment.outer
+        @conditional.inner
+        @conditional.outer
+        @frame.inner
+        @frame.outer
+        @function.inner
+        @function.outer
+        @loop.inner
+        @loop.outer
+        @parameter.inner
+        @parameter.outer
+        @scopename.inner
+        @statement.outer ]]
 	},
 	playground = {
 		enable = true,
