@@ -3,7 +3,8 @@ local c = require("lsp/utils")
 
 require("lspconfig").sumneko_lua.setup({
 	cmd = {
-		sumneko_root .. "/bin/Linux/lua-language-server",
+		-- sumneko_root .. "/bin/Linux/lua-language-server",
+		sumneko_root .. "/bin/lua-language-server",
 		"-E",
 		sumneko_root .. "/main.lua",
 	},
