@@ -54,7 +54,7 @@ vim.o.timeoutlen      = 250	        -- Time for mapped sequence to complete (in 
 vim.o.inccommand      = 'nosplit'   -- Incremental live completion
 vim.o.fileencoding    = "utf-8"	    -- Set File Encoding
 vim.o.spelllang       = "en"
-vim.o.completeopt     = "menu,menuone,noselect,noinsert"  -- Autocompletion
+vim.o.completeopt     = "menu,menuone,noselect,noinsert,preview"  -- Autocompletion
 vim.o.wrap            = false	    -- set no wrap
 vim.opt.shortmess:append { W = true, a = true }
 vim.o.undodir         = vim.fn.stdpath("cache") .. "/undo"
@@ -102,7 +102,8 @@ vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000", bg_popup = "blue
 vim.cmd([[colorscheme tokyonight]])
 
 -- formatter on save
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+	[[
 	augroup FormatAutogroup
 	  autocmd!
 	  autocmd BufWritePost * undojoin | Neoformat
@@ -117,12 +118,15 @@ vim.api.nvim_exec([[
 	true
 )
 -- Highlight on yank
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+	[[
   augroup YankHighlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup END
-]], false)
+]],
+	false
+)
 
 -- show line diagnostics on hover
 -- vim.o.updatetime = 250
