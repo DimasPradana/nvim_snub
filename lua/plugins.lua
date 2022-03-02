@@ -316,9 +316,12 @@ return require("packer").startup(function(use)
 				map_insert_mode = true,
 				quotes = { "'", '"' },
 				brackets = { "(", "{", "[" },
+        space_on_closing_char = false,
 				pairs = {
-					nestable = { { "(", ")" }, { "[", "]" }, { "{", "}" } },
-					linear = { { "'", "'" }, { "`", "`" }, { '"', '"' } },
+					--[[ nestable = { { "(", ")" }, { "[", "]" }, { "{", "}" } },
+					linear = { { "'", "'" }, { "`", "`" }, { '"', '"' } }, ]]
+					nestable = { b = { "(", ")" }, s = { "[", "]" }, B = { "{", "}" }, a = { "<", ">" } },
+					linear = { q = { "'", "'" }, t = { "`", "`" }, d = { '"', '"' } },
 				},
 				prefix = "s",
 			})
