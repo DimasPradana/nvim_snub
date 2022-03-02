@@ -316,7 +316,8 @@ return require("packer").startup(function(use)
 				map_insert_mode = true,
 				quotes = { "'", '"' },
 				brackets = { "(", "{", "[" },
-        space_on_closing_char = false,
+				space_on_closing_char = false,
+				space_on_alias = false,
 				pairs = {
 					--[[ nestable = { { "(", ")" }, { "[", "]" }, { "{", "}" } },
 					linear = { { "'", "'" }, { "`", "`" }, { '"', '"' } }, ]]
