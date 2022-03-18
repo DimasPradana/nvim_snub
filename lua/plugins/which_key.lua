@@ -84,6 +84,12 @@ wk.register({
 			p = { "<CMD>lua require('hop').hint_patterns()<CR>", "hint patterns" },
 			l = { "<CMD>lua require('hop').hint_lines()<CR>", "hint lines" },
 			c = { "<CMD>lua require('hop').hint_char2()<CR>", "hint chars" },
+			s = { "<CMD>HopLineStart<CR>", "Line Start" },
+		},
+		ha = {
+			name = "Hop Anywhere",
+			w = { "<CMD>HopAnywhere<CR>", "Any Where" },
+			l = { "<CMD>HopAnywhereCurrentLine<CR>", "Current Line" },
 		},
 	},
 }) -- }}}
