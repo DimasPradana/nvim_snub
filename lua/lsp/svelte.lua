@@ -18,11 +18,12 @@ require("lspconfig").svelte.setup({
 			"[",
 			"-",
 			":",
-		}
-	end,
-	function()
+		},
 		require("notify")("LSP svelte aktif pak", "info")
 	end,
+	-- function()
+	-- 	require("notify")("LSP svelte aktif pak", "info")
+	-- end,
 	filetypes = { "svelte" },
 	settings = {
 		svelte = {
