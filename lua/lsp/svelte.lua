@@ -20,16 +20,16 @@ require("lspconfig").svelte.setup({
 			":",
 		}
 	end,
-function()
+	function()
 		require("notify")("LSP svelte aktif pak", "info")
 	end,
 	filetypes = { "svelte" },
 	settings = {
 		svelte = {
 			plugin = {
-				html = { completions = { enable = true, emmet = true } },
+				html = { completions = { enable = true, emmet = false } },
 				svelte = { completions = { enable = true, emmet = true } },
-				css = { completions = { enable = true, emmet = true } },
+				css = { completions = { enable = true, emmet = false } },
 			},
 		},
 	},
