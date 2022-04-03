@@ -28,7 +28,7 @@ require("lspconfig").svelte.setup({
 		svelte = {
 			plugin = {
 				html = { completions = { enable = true, emmet = false } },
-				svelte = { completions = { enable = true, emmet = true } },
+				svelte = { completions = { enable = true, emmet = false } },
 				css = { completions = { enable = true, emmet = false } },
 			},
 		},
