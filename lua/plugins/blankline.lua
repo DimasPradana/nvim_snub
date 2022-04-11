@@ -13,7 +13,7 @@ vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("eol:↴")
 
 require("indent_blankline").setup({
-	indentLine_enabled = true,
+	indentLine_enabled = false,
 	char = "▏",
 	filetype_exclude = {
 		"help",
@@ -21,6 +21,7 @@ require("indent_blankline").setup({
 		"dashboard",
 		"packer",
 		"lspinfo",
+		"nvimtree",
 		"TelescopePrompt",
 		"TelescopeResults",
 	},
