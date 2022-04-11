@@ -53,6 +53,23 @@ require("nvim-tree").setup({
 			list = {},
 		},
 	},
+	renderer = {
+		indent_markers = {
+			enable = false,
+			icons = {
+				corner = "",
+				edge = "",
+				none = " ",
+			},
+		},
+	},
+	actions = {
+		use_system_clipboard = true,
+		change_dir = {
+			enable = true,
+			global = false,
+		},
+	},
 })
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
