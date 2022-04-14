@@ -21,8 +21,10 @@ cmp.setup({
 			vim.fn["vsnip#anonymous"](args.body)
 		end,
 	},
-	documentation = {
-		border = "solid",
+	window = {
+		documentation = {
+			border = "solid",
+		},
 	},
 
 	formatting = {
