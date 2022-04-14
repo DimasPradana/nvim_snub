@@ -8,13 +8,16 @@ vim.cmd([[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]])
 vim.cmd([[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]])
 vim.cmd([[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]])
 
-vim.opt.list = true
+vim.opt.list = false -- untuk hilangkan unicode spasi, tab, newline, dll
 vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("eol:↴")
 
 require("indent_blankline").setup({
-	indentLine_enabled = true,
-	char = "▏",
+	-- indentLine_enabled = true,
+	-- indentLine_enabled = false,
+	enabled = false,
+	-- char = "▏",'│', '┊','¦'
+	char = "¦",
 	filetype_exclude = {
 		"help",
 		"terminal",
@@ -40,6 +43,25 @@ require("indent_blankline").setup({
 		"IndentBlanklineIndent6",
 	},
 	show_end_of_line = true,
+	use_treesitter = true,
+  context_patterns = {
+        "class",
+        "^func",
+        "method",
+        "^if",
+        "while",
+        "for",
+        "with",
+        "try",
+        "except",
+        "arguments",
+        "argument_list",
+        "object",
+        "dictionary",
+        "element",
+        "table",
+        "tuple",
+    },
 })
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
