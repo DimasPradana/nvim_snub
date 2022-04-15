@@ -105,4 +105,19 @@ cmp.setup.cmdline("/", {
 	},
 })
 
+cmp.setup.cmdline(":", {
+	sources = {
+		{ name = "cmdline" },
+	},
+	view = {
+		entries = {
+			name = "wildmenu",
+			separator = " | ",
+			-- name = "custom",
+			-- selection_order = "near_cursor",
+			-- name = "native",
+		},
+	},
+})
+
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

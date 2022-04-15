@@ -217,8 +217,9 @@ return require("packer").startup(function(use)
 			})
 
 			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-			local cmp = require("cmp")
-			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+			-- local cmp = require("cmp")
+			-- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+			require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
 		end,
 	}) -- }}}
 
@@ -262,7 +263,8 @@ return require("packer").startup(function(use)
 				---Could be a regex string or a function that returns a regex string.
 				---Example: Use '^$' to ignore empty lines
 				---@type string|function
-				ignore = nil,
+				-- ignore = nil,
+				ignore = "^$",
 
 				---LHS of toggle mappings in NORMAL + VISUAL mode
 				---@type table
@@ -294,7 +296,7 @@ return require("packer").startup(function(use)
 					extra = true,
 					---extended mapping
 					---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
-					extended = false,
+					extended = true,
 				},
 
 				---Pre-hook, called before commenting the line
@@ -310,7 +312,7 @@ return require("packer").startup(function(use)
 
 	-- {{{ surround / sandwich
 	use({
-		"blackCauldron7/surround.nvim",
+		"ur4ltz/surround.nvim",
 		event = "BufRead",
 		config = function()
 			require("surround").setup({
@@ -498,12 +500,12 @@ return require("packer").startup(function(use)
 
 	-- {{{ lualine
 	use({
-		--[[ "~/repos/lualine.nvim",
+		"~/repos/lualine.nvim",
 		event = "VimEnter",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 		config = function()
 			require("plugins/lualine")
-		end, ]]
+		end,
 	}) --}}}
 
 	-- {{{ todo comments

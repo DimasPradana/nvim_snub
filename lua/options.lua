@@ -11,6 +11,8 @@ vim.o.termguicolors   = true	-- Set Terminal Colors
 -- vim.o.title           = true    -- Display File Info on Title
 vim.o.showmode        = false	-- Show MODES
 vim.wo.signcolumn     = 'yes'	-- Sign Column
+vim.o.iminsert        = 1 -- set iminsert
+vim.o.imsearch        = 1 -- set imsearch
 -- folding
 -- vim.wo.foldenable     = true	-- Enable Folding
 -- vim.wo.foldmethod     = 'expr'	-- Folding Method
@@ -20,7 +22,7 @@ vim.wo.foldexpr='nvim_treesitter#foldexpr()'
 vim.wo.foldtext='MyFoldText()'
 -- vim.wo.foldtext=[[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) ]]
 -- vim.wo.fillchars = "fold:\\"
-vim.wo.foldnestmax = 3
+vim.wo.foldnestmax  = 3
 vim.wo.foldminlines = 1
 
 
@@ -88,7 +90,7 @@ vim.g.did_load_filetypes = false
 
 -- Colorschemes
 --  tokyonight themes
-vim.g.tokyonight_style = "night" -- storm, night, or day
+vim.g.tokyonight_style = "storm" -- storm, night, or day
 vim.g.tokyonight_italic_comments = true
 vim.g.tokyonight_italic_keywords = true
 vim.g.tokyonight_italic_functions = true
