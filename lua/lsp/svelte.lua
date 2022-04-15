@@ -2,24 +2,24 @@
 
 require("lspconfig").svelte.setup({
 	on_attach = function(client)
-		client.server_capabilities.completionProvider.triggerCharacters = {
-			".",
-			'"',
-			"'",
-			"`",
-			"/",
-			"@",
-			"*",
-			"#",
-			"$",
-			"+",
-			"^",
-			"(",
-			"[",
-			"-",
-			":",
-		},
-		require("notify")("LSP svelte aktif pak", "info")
+		client.server_capabilities.completionProvider.triggerCharacters =
+			{
+				".",
+				'"',
+				"'",
+				"`",
+				"/",
+				"@",
+				"*",
+				"#",
+				"$",
+				"+",
+				"^",
+				"(",
+				"[",
+				"-",
+				":",
+			}, require("notify")("LSP svelte aktif pak", "info")
 	end,
 	-- function()
 	-- 	require("notify")("LSP svelte aktif pak", "info")

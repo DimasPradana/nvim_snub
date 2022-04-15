@@ -7,7 +7,7 @@ local common_on_attach = utils.common_on_attach
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-capabilities.textDocument.completion.completionItem.snippetSupport = true -- emmet_ls
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true -- emmet_ls
 
 -- Column Sign for Diagnostics
 -- Neovim 0.5+
@@ -30,31 +30,13 @@ for _, sign in ipairs(signs) do
 end
 
 -- Enable the following language servers
-local servers = { "clangd", "pyright", "cssls", "jsonls", "html" }
+local servers = { "clangd", "pyright", "cssls", "jsonls", "html", "svelte" }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = common_on_attach,
 		capabilities = capabilities,
 	})
 end
-
--- null-ls config
--- local null_ls = require("null-ls")
--- require("null-ls").setup({
--- sources = {
--- null_ls.builtins.formatting.stylua,
--- null_ls.builtins.diagnostics.eslint,
--- null_ls.builtins.completion.spell,
--- null_ls.builtins.formatting.prettier.with({
--- filetypes = {"html", "json", "lua", "markdown", "php", "typescript", "yaml", "blade", "svelte"},
--- })
--- },
--- -- on_attach = function(client)
--- -- 	if client.resolved_capabilities.documet_formatting then
--- -- 		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
--- -- 	end
--- -- end,
--- })
 
 -- set atribute of lsp diagnostics
 -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {

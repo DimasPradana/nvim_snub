@@ -159,6 +159,8 @@ return require("packer").startup(function(use)
 		requires = {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-cmdline",
+			"neovim/nvim-lspconfig",
 			-- "hrsh7th/cmp-nvim-lsp",
 			"~/repos/cmp-nvim-lsp",
 			"hrsh7th/cmp-nvim-lua",
@@ -188,6 +190,7 @@ return require("packer").startup(function(use)
 			-- "hrsh7th/cmp-copilot",
 			"~/repos/cmp-copilot",
 			"onsails/lspkind-nvim",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
 		},
 		config = function()
 			require("plugins/cmp")
@@ -357,13 +360,13 @@ return require("packer").startup(function(use)
 	}) -- }}}
 
 	-- {{{ formatter
-	use({
+	--[[ use({
 		"sbdchd/neoformat",
 		event = "BufRead",
 		--  config = function()
 		--  require("plugins/blankline")
 		--  end,
-	}) -- }}}
+	}) -- }}} ]]
 
 	-- {{{ nvim notify
 	use({
@@ -457,12 +460,11 @@ return require("packer").startup(function(use)
 	-- {{{ null-ls
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
-		-- event = "BufRead",
+		event = "BufRead",
 		-- cmd = "null_ls",
-		-- config = function()
-		-- require("null-ls").config({})
-		-- require("lspconfig")["null-ls"].setup({})
-		-- end,
+		config = function()
+			require("plugins/null-ls")
+		end,
 		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 	}) -- }}}
 
@@ -495,12 +497,12 @@ return require("packer").startup(function(use)
 
 	-- {{{ lualine
 	use({
-		"~/repos/lualine.nvim",
+		--[[ "~/repos/lualine.nvim",
 		event = "VimEnter",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 		config = function()
 			require("plugins/lualine")
-		end,
+		end, ]]
 	}) --}}}
 
 	-- {{{ todo comments

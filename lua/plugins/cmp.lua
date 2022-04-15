@@ -1,17 +1,13 @@
 vim.cmd([[ packadd nvim-cmp ]])
 
 local cmp = require("cmp")
-local cmp_buffer = require("cmp_buffer")
-local lspkind = require("lspkind") -- coba pakai lspkind
+local lspkind = require("lspkind")
+local buffer = require("cmp_buffer")
 
 -- Copilot
 vim.b.copilot_enabled = false
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
-
--- emmet_ls
-vim.g.emmet_ls_enabled = true
-vim.g.completion_trigger_characters = { ">", "." }
 
 vim.api.nvim_set_keymap("i", "<right>", 'copilot#Accept("")', { expr = true, silent = true })
 
@@ -22,52 +18,28 @@ cmp.setup({
 		end,
 	},
 	window = {
-		documentation = {
-			border = "solid",
-		},
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
 	},
-
-	formatting = {
-		format = lspkind.cmp_format({
-			with_text = true,
-			menu = {
-				buffer = "[BUF]",
-				nvim_lsp = "[LSP]",
-				nvim_lua = "[LUA]",
-				path = "[PATH]",
-				vsnip = "[SNIP]",
-			},
-			max_width = 50,
-		}),
-	},
-
-	mapping = {
+	mapping = cmp.mapping.preset.insert({
 		["<C-p>"] = cmp.mapping.select_prev_item(),
 		["<C-n>"] = cmp.mapping.select_next_item(),
 		["<C-d>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.close(),
-		["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
-		["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
-		["<Tab>"] = function(fallback)
+		["<C-Space>"] = cmp.mapping.complete(),
+		-- ["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
+		["<CR>"] = function(fallback)
 			if cmp.visible() then
-				cmp.select_next_item()
-			elseif vim.fn["vsnip#available"]() == 1 then
-				vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>(vsnip-expand-or-jump)", true, true, true), "")
+				cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })(fallback)
 			else
 				fallback()
 			end
 		end,
-	},
-
-	preselect = cmp.PreselectMode.None,
-
-	sources = {
-		{ name = "nvim_lsp" },
-		{ name = "vsnip", keyword_length = 1 },
-		{ name = "path" },
-		{ name = "nvim_lua" },
+	}),
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp", group_index = 1 },
+		{ name = "vsnip" },
 		{
 			name = "buffer",
 			keyword_length = 6,
@@ -77,25 +49,59 @@ cmp.setup({
 				end,
 			},
 		},
+		{ name = "path", keyword_length = 3 },
+		{ name = "nvim_lua" },
 		{ name = "copilot" },
+		{ name = "nvim_lsp_signature_help" },
+	}),
+	preselect = cmp.PreselectMode.None,
+	view = {
+		entries = {
+			--[[ name = "wildmenu",
+			separator = " | ", ]]
+			name = "custom",
+			selection_order = "near_cursor",
+			-- name = "native",
+		},
 	},
-
-	experimental = {
-		native_menu = false,
-		ghost_text = true,
+	formatting = {
+		format = lspkind.cmp_format({
+			-- mode = "symbol_text",
+			mode = "text_symbol",
+			menu = {
+				buffer = "[Buffer]",
+				nvim_lsp = "[LSP]",
+				vsnip = "[VSNIP]",
+				nvim_lua = "[Lua]",
+				path = "[Path]",
+				file = "[FILE]",
+			},
+		}),
 	},
-
 	sorting = {
 		comparators = {
 			function(...)
-				return cmp_buffer:compare_locality(...)
+				return buffer:compare_locality(...)
 			end,
 			-- The rest of your comparators...
 		},
 	},
+})
 
-	completion = {
-		keyword_length = 3,
+cmp.setup.cmdline("/", {
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp_document_symbol" },
+	}, {
+		{ name = "buffer" },
+	}),
+	view = {
+		entries = {
+			name = "wildmenu",
+			separator = " | ",
+			-- name = "custom",
+			-- selection_order = "near_cursor",
+			-- name = "native",
+		},
 	},
 })
 
