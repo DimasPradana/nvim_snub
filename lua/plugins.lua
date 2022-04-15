@@ -72,7 +72,8 @@ return require("packer").startup(function(use)
 
 	-- {{{ Bufferline
 	use({
-		"akinsho/bufferline.nvim",
+		"~/repos/bufferline.nvim",
+		-- "akinsho/bufferline.nvim",
 		event = "BufWinEnter",
 		requires = { { "kyazdani42/nvim-web-devicons" } },
 		config = function()

@@ -1,8 +1,13 @@
 vim.cmd([[ packadd bufferline ]])
 
+vim.opt.termguicolors = true
+
 require("bufferline").setup({
 	options = {
+		-- mode = "tabs",
+		numbers = "both", -- none, ordinal, both, buffer_id
 		offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+		show_buffer_icons = true,
 		buffer_close_icon = "",
 		modified_icon = "",
 		-- close_icon = "%@NvChad_bufferline_quitvim@%X",
@@ -17,7 +22,8 @@ require("bufferline").setup({
 		enforce_regular_tabs = false,
 		view = "multiwindow",
 		show_buffer_close_icons = true,
-		separator_style = "thin",
+		-- separator_style = "thin",
+		separator_style = "padded_slant",
 		always_show_bufferline = true,
 		diagnostics = false, -- "or nvim_lsp"
 		custom_filter = function(buf_number)
@@ -38,6 +44,33 @@ require("bufferline").setup({
 				return true
 			end
 		end,
+	},
+	groups = {
+		options = {
+			toggle_hidden_on_enter = true, -- when you re-enter a hidden group this options re-opens that group so the buffer is visible
+		},
+		items = {
+			{
+				name = "Tests", -- Mandatory
+				highlight = { gui = "underline", guisp = "blue" }, -- Optional
+				priority = 2, -- determines where it will appear relative to other groups (Optional)
+				icon = "", -- Optional
+				matcher = function(buf) -- Mandatory
+					return buf.filename:match("%_test") or buf.filename:match("%_spec")
+				end,
+			},
+			{
+				name = "Docs",
+				highlight = { gui = "undercurl", guisp = "green" },
+				auto_close = false, -- whether or not close this group if it doesn't contain the current buffer
+				matcher = function(buf)
+					return buf.filename:match("%.md") or buf.filename:match("%.txt")
+				end,
+				separator = { -- Optional
+					style = require("bufferline.groups").separator.tab,
+				},
+			},
+		},
 	},
 })
 

@@ -1,7 +1,6 @@
 local sumneko_root = os.getenv("HOME") .. "/repos/lua-language-server"
 local c = require("lsp/utils")
 
-
 require("lspconfig").sumneko_lua.setup({
 	cmd = {
 		-- sumneko_root .. "/bin/Linux/lua-language-server",
