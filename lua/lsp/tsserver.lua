@@ -26,6 +26,7 @@ require("lspconfig").tsserver.setup({
 	},
 	on_attach = function()
 		require("notify")("LSP tsserver aktif pak", "info")
+		vim.api.nvim_buf_set_keymap(0, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true })
 	end,
 })
 

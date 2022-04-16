@@ -43,6 +43,10 @@ require("lspconfig").gopls.setup({
 	quick_type_flags = { "--just-types" },
 	on_attach = function()
 		require("notify")("LSP golang aktif pak", "info")
+		vim.api.nvim_buf_set_keymap(0, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true })
+		-- vim.api.nvim_buf_set_keymap(0, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true })
+		-- vim.api.nvim_buf_set_keymap(0, "n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { noremap = true })
+		-- vim.api.nvim_buf_set_keymap(0, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { noremap = true })
 	end,
 })
 

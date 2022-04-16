@@ -2,24 +2,25 @@
 
 require("lspconfig").svelte.setup({
 	on_attach = function(client)
-		client.server_capabilities.completionProvider.triggerCharacters =
-			{
-				".",
-				'"',
-				"'",
-				"`",
-				"/",
-				"@",
-				"*",
-				"#",
-				"$",
-				"+",
-				"^",
-				"(",
-				"[",
-				"-",
-				":",
-			}, require("notify")("LSP svelte aktif pak", "info")
+		require("notify")("LSP svelte aktif pak", "info")
+		vim.api.nvim_buf_set_keymap(0, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true })
+		client.server_capabilities.completionProvider.triggerCharacters = {
+			".",
+			'"',
+			"'",
+			"`",
+			"/",
+			"@",
+			"*",
+			"#",
+			"$",
+			"+",
+			"^",
+			"(",
+			"[",
+			"-",
+			":",
+		}
 	end,
 	-- function()
 	-- 	require("notify")("LSP svelte aktif pak", "info")
