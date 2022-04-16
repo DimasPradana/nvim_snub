@@ -43,6 +43,18 @@ wk.register({
 	},
 }) -- }}}
 
+-- {{{ yank and paste
+wk.register({
+	["<leader>"] = {
+		y = {
+			name = "Yank & Paste",
+			y = { '"+y', "yank" },
+			p = { '"+p', "paste" },
+			Y = { 'y$', "yank line" },
+		},
+	},
+}) -- }}}
+
 -- {{{ telescope
 wk.register({
 	["<leader>"] = {

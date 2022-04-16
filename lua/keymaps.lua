@@ -22,11 +22,14 @@ cnoremap("jk", "<Esc>") -- }}}
 -- vnoremap("jk", "<Esc>") -- }}} -- make lagging ;(
 
 -- {{{ Yank to end of line
-nnoremap("Y", "y$") -- }}}
+-- nnoremap("Y", "y$") -- }}}
 
--- {{{ Copy to system clipboard
-nnoremap("<leader>y", '"+y')
-vnoremap("<leader>y", '"+y') -- }}}
+-- {{{ Copy and paste to system clipboard
+--[[ nnoremap("<leader>y", '"+y')
+vnoremap("<leader>y", '"+y')
+nnoremap("<leader>pp", '"+p')
+vnoremap("<leader>pp", '"+p') ]]
+-- }}}
 
 -- {{{ Center Next, Prev and Line Concatenate
 -- nnoremap("n", "nzzzv")
