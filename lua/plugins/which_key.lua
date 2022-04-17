@@ -50,7 +50,7 @@ wk.register({
 			name = "Yank & Paste",
 			y = { '"+y', "yank" },
 			p = { '"+p', "paste" },
-			Y = { 'y$', "yank line" },
+			Y = { "y$", "yank line" },
 		},
 	},
 }) -- }}}
@@ -134,10 +134,14 @@ wk.register({
 wk.register({
 	["<leader>"] = {
 		e = {
-			name = "Nvimtree",
-			e = { "<CMD>NvimTreeToggle<CR>", "Toggle" },
-			r = { "<CMD>NvimTreeRefresh<CR>", "Refresh" },
-			w = { "<CMD>NvimTreeFocus<CR>", "Focus" },
+			-- name = "Nvimtree",
+			name = "NeoTree",
+			-- e = { "<CMD>NvimTreeToggle<CR>", "Toggle" },
+			-- r = { "<CMD>NvimTreeRefresh<CR>", "Refresh" },
+			-- w = { "<CMD>NvimTreeFocus<CR>", "Focus" },
+			e = { "<CMD>NeoTreeFocusToggle<CR>", "Toggle" },
+			-- r = { "<CMD>NvimTreeRefresh<CR>", "Refresh" },
+			-- w = { "<CMD>NvimTreeFocus<CR>", "Focus" },
 		},
 	},
 }) -- }}}

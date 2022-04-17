@@ -27,6 +27,7 @@ require("indent_blankline").setup({
 		"TelescopePrompt",
 		"TelescopeResults",
 		"NvimTree",
+		"Neotree",
 	},
 	buftype_exclude = { "terminal" },
 	show_trailing_blankline_indent = false,
