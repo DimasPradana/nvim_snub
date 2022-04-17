@@ -337,12 +337,12 @@ return require("packer").startup(function(use)
 					extended = true,
 				},
 
-				---Pre-hook, called before commenting the line
-				---@type fun(ctx: Ctx):string
+				--[[ Pre-hook, called before commenting the line
+				@type fun(ctx: Ctx):string ]]
 				pre_hook = nil,
 
-				---Post-hook, called after commenting is done
-				---@type fun(ctx: Ctx)
+				--[[ Post-hook, called after commenting is done
+				@type fun(ctx: Ctx) ]]
 				post_hook = nil,
 			})
 		end,

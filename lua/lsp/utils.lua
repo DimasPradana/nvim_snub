@@ -16,11 +16,11 @@ function M.common_on_attach(client, bufnr)
 	-- Keymaps
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-	local opts = { noremap = true, silent = true }
+	-- local opts = { noremap = true, silent = true }
 
-	function bufnnoremap(lhs, rhs)
+	--[[ function bufnnoremap(lhs, rhs)
 		vim.api.nvim_buf_set_keymap(bufnr, "n", lhs, rhs, opts)
-	end
+	end ]]
 
 	-- bufnnoremap("gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>")
 	-- bufnnoremap("gd", "<Cmd>lua vim.lsp.buf.definition()<CR>")

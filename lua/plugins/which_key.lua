@@ -38,7 +38,7 @@ wk.register({
 				e = { "<CMD>lua require('telescope.builtin').lsp_definitions()<CR>", "lsp definitions" },
 				t = { "<CMD>lua require('telescope.builtin').lsp_type_definitions()<CR>", "lsp type definitions" },
 			},
-			c = { "<CMD>lua print(vim.inspect(vim.lsp.buf_get_clients()))<CR>", "print LSP" },
+			l = { "<CMD>lua print(vim.inspect(vim.lsp.buf_get_clients()))<CR>", "print LSP" },
 		},
 	},
 }) -- }}}
