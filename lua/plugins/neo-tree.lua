@@ -1,4 +1,5 @@
 vim.cmd([[ packadd neo-tree ]])
+local highlights = require("neo-tree.ui.highlights")
 
 -- Unless you are still migrating, remove the deprecated commands from v1.x
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
@@ -96,7 +97,7 @@ require("neo-tree").setup({
 	filesystem = {
 		filtered_items = {
 			visible = false, -- when true, they will just be displayed differently than normal items
-			hide_dotfiles = true,
+			hide_dotfiles = false,
 			hide_gitignored = true,
 			hide_by_name = {
 				".DS_Store",
@@ -109,6 +110,56 @@ require("neo-tree").setup({
 			never_show = { -- remains hidden even if visible is toggled to true
 				--".DS_Store",
 				--"thumbs.db"
+			},
+		},
+		components = {
+			icon = function(config, node, state)
+				local icon = config.default or " "
+				local padding = config.padding or " "
+				local highlight = config.highlight or highlights.FILE_ICON
+
+				if node.type == "directory" then
+					highlight = highlights.DIRECTORY_ICON
+					if node:is_expanded() then
+						icon = config.folder_open or "-"
+					else
+						icon = config.folder_closed or "+"
+					end
+				elseif node.type == "file" then
+					local success, web_devicons = pcall(require, "nvim-web-devicons")
+					if success then
+						local devicon, hl = web_devicons.get_icon(node.name, node.ext)
+						icon = devicon or icon
+						highlight = hl or highlight
+					end
+				end
+				return {
+					text = icon .. padding,
+					highlight = highlight,
+				}
+			end,
+		-- }, -- tutup components
+		harpoon_index = function(config, node, state)
+				local Marked = require("harpoon.mark")
+				local path = node:get_id()
+				local succuss, index = pcall(Marked.get_index_of, path)
+				if succuss and index and index > 0 then
+					return {
+						text = string.format(" ⥤ %d", index), -- <-- Add your favorite harpoon like arrow here
+						highlight = config.highlight or "NeoTreeDirectoryIcon",
+					}
+				else
+					return {}
+				end
+			end,
+		},
+		renderers = {
+			file = {
+				{ "icon" },
+				{ "name", use_git_status_colors = true },
+				{ "harpoon_index" }, --> This is what actually adds the component in where you want it
+				{ "diagnostics" },
+				{ "git_status", highlight = "NeoTreeDimText" },
 			},
 		},
 		follow_current_file = true, -- This will find and focus the file in the active buffer every

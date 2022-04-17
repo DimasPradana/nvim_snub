@@ -67,6 +67,7 @@ return require("packer").startup(function(use)
 		event = "BufRead",
 		branch = "v2.x",
 		requires = {
+			"ThePrimeagen/harpoon", -- optional
 			"nvim-lua/plenary.nvim",
 			"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
