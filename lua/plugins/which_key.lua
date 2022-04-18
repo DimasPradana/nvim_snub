@@ -142,7 +142,7 @@ wk.register({
 			-- e = { "<CMD>NeoTreeFocusToggle<CR>", "Toggle" },
 			e = { "<CMD>Neotree action=focus source=filesystem position=left toggle=true<CR>", "Toggle filesystem" },
 			b = { "<CMD>Neotree action=focus source=buffers position=right toggle=true<CR>", "Toggle buffer" },
-			g = { "<CMD>Neotree action=c=focus source=git_status position=right toggle=true<CR>", "Toggle git" },
+			g = { "<CMD>Neotree action=focus source=git_status position=right toggle=true<CR>", "Toggle git" },
 			-- r = { "<CMD>NvimTreeRefresh<CR>", "Refresh" },
 			-- w = { "<CMD>NvimTreeFocus<CR>", "Focus" },
 		},
@@ -204,6 +204,7 @@ wk.register({
 			e = { "<CMD>set list<CR>", "Set List" },
 			d = { "<CMD>set nolist<CR>", "Set No List" },
 			l = { "<CMD>set listchars<CR>", "show listchars" },
+			v = { "<CMD>NvimContextVtToggle<CR>", "show virtual text" },
 		},
 	},
 }) --}}}
