@@ -374,21 +374,30 @@ return require("packer").startup(function(use)
 	}) -- }}}
 
 	-- {{{ tokyonight themes
+	-- use({
+	-- 	"folke/tokyonight.nvim",
+	-- 	--  event = "ColorSchemePre",
+	-- 	--  config = function()
+	-- 	--  --  require("plugins/tokyonight")
+	-- 	--  vim.g.tokyonight_style = "night"
+	-- 	--  vim.g.tokyonight_italic_functions = true
+	-- 	--  vim.g.tokyonight_italic_comments = true
+	-- 	--  vim.g.tokyonight_italic_variables = true
+	-- 	--  vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
+	-- 	--  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+	-- 	--  vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
+	-- 	--  -- Load the colorscheme
+	-- 	--  vim.cmd([[colorscheme tokyonight]])
+	-- 	--  end,
+	-- }) -- }}}
+
+	-- {{{ catppuccin themes
 	use({
-		"folke/tokyonight.nvim",
-		--  event = "ColorSchemePre",
-		--  config = function()
-		--  --  require("plugins/tokyonight")
-		--  vim.g.tokyonight_style = "night"
-		--  vim.g.tokyonight_italic_functions = true
-		--  vim.g.tokyonight_italic_comments = true
-		--  vim.g.tokyonight_italic_variables = true
-		--  vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
-		--  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-		--  vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
-		--  -- Load the colorscheme
-		--  vim.cmd([[colorscheme tokyonight]])
-		--  end,
+		"catppuccin/nvim",
+		as = "catppuccin",
+    config = function()
+      require("plugins/catppuccin")
+    end
 	}) -- }}}
 
 	-- {{{ indent line

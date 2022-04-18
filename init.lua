@@ -2,6 +2,7 @@ require("plugins/packer") -- Plugins
 require("keymaps") -- Keymapping
 require("options") -- Options
 require("ui") -- UI
+require("globals") -- globals
 
 -- vim.lsp.set_log_level("debug") -- for debugging active
 
