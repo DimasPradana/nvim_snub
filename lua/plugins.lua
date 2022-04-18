@@ -395,9 +395,9 @@ return require("packer").startup(function(use)
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
-    config = function()
-      require("plugins/catppuccin")
-    end
+		config = function()
+			require("plugins/catppuccin")
+		end,
 	}) -- }}}
 
 	-- {{{ indent line
@@ -422,9 +422,9 @@ return require("packer").startup(function(use)
 	use({
 		"~/repos/nvim-notify",
 		event = "BufRead",
-		--  config = function()
-		--  require("plugins/blankline")
-		--  end,
+		config = function()
+			require("plugins/notify")
+		end,
 	}) -- }}}
 
 	-- {{{ smooth scrolling
@@ -553,6 +553,15 @@ return require("packer").startup(function(use)
 		config = function()
 			require("plugins/lualine")
 		end,
+	}) --}}}
+
+	-- {{{ virtual-text
+	use({
+		"haringsrob/nvim_context_vt",
+		event = "BufRead",
+		-- config = function()
+		-- 	require("plugins/nvim_context_vt")
+		-- end,
 	}) --}}}
 
 	-- {{{ todo comments
