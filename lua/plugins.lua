@@ -556,13 +556,13 @@ return require("packer").startup(function(use)
 	}) --}}}
 
 	-- {{{ virtual-text
-	use({
+	--[[ use({
 		"haringsrob/nvim_context_vt",
 		event = "BufRead",
 		-- config = function()
 		-- 	require("plugins/nvim_context_vt")
 		-- end,
-	}) --}}}
+	}) --}}} ]]
 
 	-- {{{ todo comments
 	use({ -- ISSUE(coba pakai todo-comments): fixed by snub on Wed 12 Jan 2022 10:41:15
