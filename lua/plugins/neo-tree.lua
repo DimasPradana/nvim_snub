@@ -311,6 +311,15 @@ require("neo-tree").setup({
 				return { handled = true }
 			end,
 		},
+		{
+			event = "file_opened",
+			handler = function(file_path)
+				--auto close
+				require("neo-tree").close_all()
+			end,
+		},
 	},
 	-- vim.cmd([[nnoremap \ :Neotree reveal<cr>]]),
 })
+
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

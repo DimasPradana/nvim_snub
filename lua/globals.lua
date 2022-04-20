@@ -10,3 +10,5 @@ P = function(v)
 	print(vim.inspect(v))
 	return v
 end
+
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

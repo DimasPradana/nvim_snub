@@ -80,3 +80,6 @@ end
 catppuccin.after_loading = function()
 	print("I ran after loading Catppuccin!")
 end ]]
+
+
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
