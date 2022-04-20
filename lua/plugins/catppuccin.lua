@@ -66,11 +66,10 @@ catppuccin.setup({
 		telekasten = true,
 		symbols_outline = true,
 	},
-})
-
-catppuccin.remap({
-	Comment = { fg = colors.flamingo, bg = colors.red },
-	hi_group = { fg = colors.red, bg = colors.blue },
+	catppuccin.remap({
+		-- Comment = { fg = colors.flamingo, bg = colors.red },
+		-- hi_group = { fg = colors.white, bg = colors.blue },
+	}),
 })
 
 --[[ catppuccin.before_loading = function()
@@ -80,6 +79,5 @@ end
 catppuccin.after_loading = function()
 	print("I ran after loading Catppuccin!")
 end ]]
-
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
