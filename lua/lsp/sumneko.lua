@@ -37,8 +37,8 @@ require("lspconfig").sumneko_lua.setup({
 	},
 	on_attach = function(client)
 		require("notify")("LSP lua aktif pak", "info")
-		client.resolved_capabilities.document_formatting = false -- coba null-ls default formatting
-		client.resolved_capabilities.document_range_formatting = false
+		client.resolved_capabilities.document_formatting = true -- coba null-ls default formatting
+		client.resolved_capabilities.document_range_formatting = true
 		vim.api.nvim_buf_set_keymap(0, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true })
 		vim.api.nvim_buf_set_keymap(0, "n", "ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true })
 		vim.api.nvim_buf_set_keymap(0, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true })

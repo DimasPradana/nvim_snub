@@ -165,6 +165,8 @@ wk.register({
 			c = { "<CMD>PackerCompile<CR>", "Packer Compile" },
 			i = { "<CMD>PackerInstall<CR>", "Packer Install" },
 			l = { "<CMD>PackerClean<CR>", "Packer Clean" },
+			p = { "<CMD>PackerProfile<CR>", "Packer Profile" },
+			u = { "<CMD>PackerUpdate<CR>", "Packer Update" },
 		},
 	},
 }) -- }}}

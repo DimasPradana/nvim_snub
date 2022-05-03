@@ -38,7 +38,7 @@ vim.o.expandtab       = true
 vim.o.tabstop         = 2	    -- Tabstop
 vim.o.softtabstop     = 2
 vim.o.shiftwidth      = 2
-vim.o.scrolloff       = 12  	    -- Vertical Scroll Offset
+vim.o.scrolloff       = 0  	    -- Vertical Scroll Offset
 -- vim.o.scrolloff       = 21  	    -- Vertical Scroll Offset
 vim.o.sidescrolloff   = 8  	    -- Horizontal Scroll Offset
 vim.o.mouse           = 'a'	    -- Enable mouse mode
@@ -89,37 +89,37 @@ vim.g.loaded_remote_plugins = false
 vim.g.did_load_filetypes = false
 
 -- Colorschemes
---  tokyonight themes
--- vim.g.tokyonight_style = "storm" -- storm, night, or day
--- vim.g.tokyonight_italic_comments = true
--- vim.g.tokyonight_italic_keywords = true
--- vim.g.tokyonight_italic_functions = true
--- vim.g.tokyonight_italic_variables = true
--- vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
--- -- Change the "hint" color to the "orange" color, and make the "error" color bright red
--- -- vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
--- vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000", bg_popup = "blue7" }
--- -- vim.g.tokyonight_colors = { bg_popup = "blue7" }
--- -- Load the colorscheme
--- vim.cmd([[colorscheme tokyonight]])
+-- tokyonight themes
+vim.g.tokyonight_style = "storm" -- storm, night, or day
+vim.g.tokyonight_italic_comments = true
+vim.g.tokyonight_italic_keywords = true
+vim.g.tokyonight_italic_functions = true
+vim.g.tokyonight_italic_variables = true
+vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
+-- Change the "hint" color to the "orange" color, and make the "error" color bright red
+-- vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
+vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000", bg_popup = "blue7" }
+-- vim.g.tokyonight_colors = { bg_popup = "blue7" }
+-- Load the colorscheme
+vim.cmd([[colorscheme tokyonight]])
 
 -- catppuccin themes
-vim.cmd[[colorscheme catppuccin]]
+-- vim.cmd([[colorscheme catppuccin]])
 
 -- formatter on save
 vim.api.nvim_exec(
-	-- [[
-	-- augroup FormatAutogroup
-	--   autocmd!
-	--   autocmd BufWritePost * undojoin | Neoformat
-	-- augroup END
-	-- ]],
 	[[
 	augroup FormatAutogroup
 	  autocmd!
-	  autocmd BufWritePost * undojoin | lua vim.lsp.buf.formatting_sync()
+	  autocmd BufWritePost * undojoin | Neoformat
 	augroup END
 	]],
+	-- [[
+	-- augroup FormatAutogroup
+	--   autocmd!
+	--   autocmd BufWritePost * undojoin | lua vim.lsp.buf.formatting_sync()
+	-- augroup END
+	-- ]],
 	true
 )
 -- Highlight on yank
