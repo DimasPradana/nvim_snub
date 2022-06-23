@@ -263,10 +263,10 @@ return require("packer").startup(function(use)
 	}) -- }}}
 
 	-- {{{ copilot
-	use({
+	--[[ use({
 		-- "github/copilot.vim",
-		-- "~/repos/copilot.vim",
-	}) -- }}}
+		"~/repos/copilot.vim",
+	}) -- }}} ]]
 
 	-- {{{ colorizer
 	use({
