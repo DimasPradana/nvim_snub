@@ -228,7 +228,7 @@ return require("packer").startup(function(use)
 			}, -- vsnip
 			"hrsh7th/cmp-vsnip", -- coba pake vsnip
 			-- "hrsh7th/cmp-copilot",
-			"~/repos/cmp-copilot",
+			-- "~/repos/cmp-copilot",
 			"onsails/lspkind-nvim",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
 		},
@@ -265,7 +265,7 @@ return require("packer").startup(function(use)
 	-- {{{ copilot
 	use({
 		-- "github/copilot.vim",
-		"~/repos/copilot.vim",
+		-- "~/repos/copilot.vim",
 	}) -- }}}
 
 	-- {{{ colorizer
