@@ -16,10 +16,10 @@ return require("packer").startup(function(use)
 	}) -- }}}
 
 	-- {{{ StartupTime
-	use({
+	--[[ use({
 		"tweekmonster/startuptime.vim",
 		event = "VimEnter",
-	}) -- }}}
+	}) -- }}} ]]
 
 	-- {{{ Filetype replacement
 	use({
