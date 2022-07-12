@@ -395,6 +395,7 @@ return require("packer").startup(function(use)
 	-- {{{ catppuccin themes
 	use({
 		"catppuccin/nvim",
+		tag = "dev",
 		as = "catppuccin",
 		config = function()
 			require("plugins/catppuccin")
