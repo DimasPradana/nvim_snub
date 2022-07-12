@@ -45,7 +45,7 @@ function M.common_on_attach(client, bufnr)
 	-- bufnnoremap("<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 	-- bufnnoremap("<leader>ca", "<cmd>lua vim.lsp.buf.range_code_action()<CR>")
 
-	if client.resolved_capabilities.document_formatting then
+	if client.server_capabilities.document_formatting then
 		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
 	end
 end
