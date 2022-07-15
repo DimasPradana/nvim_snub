@@ -5,11 +5,11 @@ local lspkind = require("lspkind")
 local buffer = require("cmp_buffer")
 
 -- Copilot
-vim.b.copilot_enabled = false
-vim.g.copilot_no_tab_map = true
-vim.g.copilot_assume_mapped = true
+-- vim.b.copilot_enabled = false
+-- vim.g.copilot_no_tab_map = true
+-- vim.g.copilot_assume_mapped = true
 
-vim.api.nvim_set_keymap("i", "<right>", 'copilot#Accept("")', { expr = true, silent = true })
+-- vim.api.nvim_set_keymap("i", "<right>", 'copilot#Accept("")', { expr = true, silent = true })
 
 cmp.setup({
 	snippet = {
@@ -49,9 +49,9 @@ cmp.setup({
 				end,
 			},
 		},
-		{ name = "path", keyword_length = 3 },
+		{ name = "path", keyword_length = 2 },
 		{ name = "nvim_lua" },
-		{ name = "copilot" },
+		-- { name = "copilot" },
 		{ name = "nvim_lsp_signature_help" },
 	}),
 	preselect = cmp.PreselectMode.None,
@@ -99,7 +99,7 @@ cmp.setup.cmdline("/", {
 			name = "wildmenu",
 			separator = " | ",
 			-- name = "custom",
-			-- selection_order = "near_cursor",
+			selection_order = "near_cursor",
 			-- name = "native",
 		},
 	},
@@ -114,7 +114,7 @@ cmp.setup.cmdline(":", {
 			name = "wildmenu",
 			separator = " | ",
 			-- name = "custom",
-			-- selection_order = "near_cursor",
+			selection_order = "near_cursor",
 			-- name = "native",
 		},
 	},

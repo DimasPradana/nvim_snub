@@ -187,4 +187,9 @@ vim.cmd([[
 	cnoreabbrev Qall qall
 ]])
 
+-- NOTE: ketika *.blade.php set filetype ke laravel
+vim.cmd([[
+  autocmd BufRead,BufNewFile *.blade.php set filetype=laravel
+]])
+
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
