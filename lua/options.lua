@@ -192,4 +192,9 @@ vim.cmd([[
   autocmd BufRead,BufNewFile *.blade.php set filetype=laravel
 ]])
 
+-- NOTE: code_action
+vim.cmd([[
+ autocmd CursorHold,CursorHoldI * lua require('code_action_utils').code_action_listener()
+]])
+
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
