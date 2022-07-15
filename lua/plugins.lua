@@ -667,6 +667,16 @@ return require("packer").startup(function(use)
 		end,
 	}) -- }}}
 
+	-- {{{ vim-blade
+	use({
+		"jwalton512/vim-blade",
+		event = "BufRead",
+		filetype = { "laravel" },
+		config = function()
+			-- require("plugins/gitsigns")
+		end,
+	}) -- }}}
+
 	-- TODO: nvim dashboard
 	-- TODO: neovim bootstraping
 	-- FIXME: nvim-lsp code_actions, diagnostics, hover, references, rename, signature, symbol_resolve, workspace_symbol not working yet
