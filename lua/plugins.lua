@@ -45,6 +45,7 @@ return require("packer").startup(function(use)
 			-- "nvim-telescope/telescope-fzy-native.nvim",
 			"nvim-telescope/telescope-symbols.nvim",
 			-- "gbrlsnchs/telescope-lsp-handlers.nvim",
+			"nvim-telescope/telescope-ui-select.nvim",
 		},
 		config = function()
 			require("plugins/telescope")
@@ -674,6 +675,25 @@ return require("packer").startup(function(use)
 		filetype = { "laravel" },
 		config = function()
 			-- require("plugins/gitsigns")
+		end,
+	}) -- }}}
+
+	-- {{{ java nvim-jdtls
+	--[[ use({
+		"mfussenegger/nvim-jdtls",
+		event = "BufRead",
+		filetype = { "java" },
+		config = function()
+			-- require("plugins/gitsigns")
+		end,
+	}) -- }}} ]]
+
+	-- {{{ mason lsp manager
+	use({
+		"williamboman/mason.nvim",
+		-- event = "BufRead",
+		config = function()
+			require("plugins/mason")
 		end,
 	}) -- }}}
 
