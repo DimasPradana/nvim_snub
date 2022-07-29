@@ -678,16 +678,6 @@ return require("packer").startup(function(use)
 		end,
 	}) -- }}}
 
-	-- {{{ java nvim-jdtls
-	--[[ use({
-		"mfussenegger/nvim-jdtls",
-		event = "BufRead",
-		filetype = { "java" },
-		config = function()
-			-- require("plugins/gitsigns")
-		end,
-	}) -- }}} ]]
-
 	-- {{{ mason lsp manager
 	use({
 		"williamboman/mason.nvim",
