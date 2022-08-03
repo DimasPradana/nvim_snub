@@ -48,9 +48,13 @@ nnoremap("<A-h>", "<cmd>BufferLineCyclePrev<cr>") -- previous -- }}}
 -- nnoremap("/", "<cmd>lua require('searchbox').match_all({clear_matches = true})<cr>") -- run searchbox -- }}}
 
 -- {{{ nav when insert and command mode
-inoremap("<C-h>", "<left>") -- nav left on insert mode
-inoremap("<C-j>", "<down>") -- nav down on insert mode
-inoremap("<C-k>", "<up>") -- nav up on insert mode
-inoremap("<C-l>", "<right>") -- nav right on insert mode -- }}}
+inoremap("<A-h>", "<left>") -- nav left on insert mode
+inoremap("<A-j>", "<down>") -- nav down on insert mode
+inoremap("<A-k>", "<up>") -- nav up on insert mode
+inoremap("<A-l>", "<right>") -- nav right on insert mode -- }}}
+
+-- {{{ symbols outline
+nnoremap("<F10>", ":SymbolsOutline<CR>")
+-- }}}
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

@@ -124,7 +124,7 @@ wk.register({
 	["<leader>"] = {
 		g = {
 			name = "go and glow",
-			r = { "<CMD>!go run main.go<CR>", "go run" }, -- go run main
+			r = { "<CMD>!go run ./main.go<CR>", "go run" }, -- go run main
 			l = { "<CMD>Glow<CR>", "markdown previewer" },
 		},
 	},

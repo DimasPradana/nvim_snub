@@ -687,6 +687,12 @@ return require("packer").startup(function(use)
 		end,
 	}) -- }}}
 
+	-- {{{ symbol outline like tagbar
+	use({
+		"simrat39/symbols-outline.nvim",
+		-- event = "BufRead",
+	}) -- }}}
+
 	-- TODO: nvim dashboard
 	-- TODO: neovim bootstraping
 	-- FIXME: nvim-lsp code_actions, diagnostics, hover, references, rename, signature, symbol_resolve, workspace_symbol not working yet
