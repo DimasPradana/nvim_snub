@@ -8,6 +8,12 @@ require("mason").setup({
 	},
 })
 
+require("mason-lspconfig").setup({
+	ensure_installed = {
+		"sumneko_lua",
+	},
+})
+
 local DEFAULT_SETTINGS = {
 	ui = {
 		-- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.

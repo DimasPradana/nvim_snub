@@ -681,6 +681,7 @@ return require("packer").startup(function(use)
 	-- {{{ mason lsp manager
 	use({
 		"williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
 		-- event = "BufRead",
 		config = function()
 			require("plugins/mason")
