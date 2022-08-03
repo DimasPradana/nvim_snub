@@ -41,8 +41,11 @@ exprnnoremap("k", "v:count == 0 ? 'gk' : 'k'")
 exprnnoremap("j", "v:count == 0 ? 'gj' : 'j'") -- }}}
 
 -- {{{ bufferline
-nnoremap("<A-l>", "<cmd>BufferLineCycleNext<cr>") -- next
-nnoremap("<A-h>", "<cmd>BufferLineCyclePrev<cr>") -- previous -- }}}
+-- nnoremap("<A-l>", "<cmd>BufferLineCycleNext<cr>") -- next
+-- nnoremap("<A-h>", "<cmd>BufferLineCyclePrev<cr>") -- previous -- }}}
+-- <C-x> go to file selection as a split   
+-- <C-v> go to file selection as a vsplit   
+-- <C-t> go to a file in a new tab
 
 -- {{{ searchbox
 -- nnoremap("/", "<cmd>lua require('searchbox').match_all({clear_matches = true})<cr>") -- run searchbox -- }}}

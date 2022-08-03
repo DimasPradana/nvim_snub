@@ -21,6 +21,14 @@ require("lspconfig").emmet_ls.setup({
 		require("notify")("LSP emmet aktif pak", "info")
 	end,
 	capabilities = capabilities,
+  init_options = {
+      html = {
+        options = {
+          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+          ["bem.enabled"] = true,
+        },
+      },
+    }
 })
 -- local lspconfig = require('lspconfig')
 

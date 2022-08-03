@@ -201,7 +201,7 @@ function Statusline.packer()
 end
 
 function Statusline.focusLost()
-	return "%#StatusLineNC# Focus Lost Kang"
+	return "%#StatusLineNC# Focus Lost Kang %#filename()#"
 end
 
 function Statusline.telescopePrompt()
