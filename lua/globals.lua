@@ -1,9 +1,9 @@
 local ok, plenary_reload = pcall(require("plenary.reload"))
 
 if not ok then
-	reloader = require
+	Reloader = require
 else
-	reloader = plenary_reload.reload_module
+	Reloader = plenary_reload.reload_module
 end
 
 P = function(v)

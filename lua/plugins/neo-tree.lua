@@ -16,7 +16,8 @@ local function getTelescopeOpts(state, path)
 	return {
 		cwd = path,
 		search_dirs = { path },
-		attach_mappings = function(prompt_bufnr, map)
+		-- attach_mappings = function(prompt_bufnr, map)
+		attach_mappings = function(prompt_bufnr)
 			local actions = require("telescope.actions")
 			actions.select_default:replace(function()
 				actions.close(prompt_bufnr)
@@ -39,7 +40,17 @@ require("neo-tree").setup({
 	popup_border_style = "rounded",
 	enable_git_status = true,
 	enable_diagnostics = true,
+	sort_case_insensitive = false,
+	sort_function = nil,
+	use_libuv_file_watcher = true, -- does no need to be manually refreshed
+	source_selector = {
+		winbar = false,
+		statusline = false,
+	},
 	default_component_configs = {
+		container = {
+			enable_character_fade = true,
+		},
 		indent = {
 			indent_size = 2,
 			padding = 1, -- extra padding on left hand side
@@ -59,6 +70,7 @@ require("neo-tree").setup({
 			folder_open = "",
 			folder_empty = "ﰊ",
 			default = "*",
+			highlight = "NeoTreeFileIcon",
 		},
 		modified = {
 			symbol = "[+]",
@@ -67,6 +79,7 @@ require("neo-tree").setup({
 		name = {
 			trailing_slash = false,
 			use_git_status_colors = true,
+			highlight = "NeoTreeFileName",
 		},
 		git_status = {
 			symbols = {
@@ -125,7 +138,7 @@ require("neo-tree").setup({
 			hide_by_name = {
 				".DS_Store",
 				"thumbs.db",
-				--"node_modules"
+				"node_modules",
 			},
 			hide_by_pattern = { -- uses glob style patterns
 				--"*.meta"
@@ -136,7 +149,8 @@ require("neo-tree").setup({
 			},
 		},
 		components = {
-			icon = function(config, node, state)
+			-- icon = function(config, node, state)
+			icon = function(config, node)
 				local icon = config.default or " "
 				local padding = config.padding or " "
 				local highlight = config.highlight or highlights.FILE_ICON
@@ -162,7 +176,8 @@ require("neo-tree").setup({
 				}
 			end,
 			-- }, -- tutup components
-			harpoon_index = function(config, node, state)
+			-- harpoon_index = function(config, node, state)
+			harpoon_index = function(config, node)
 				local Marked = require("harpoon.mark")
 				local path = node:get_id()
 				local succuss, index = pcall(Marked.get_index_of, path)
@@ -212,6 +227,7 @@ require("neo-tree").setup({
 		-- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
 		use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
 		-- instead of relying on nvim autocmd events.
+
 		window = {
 			mappings = {
 				["<bs>"] = "navigate_up",
@@ -224,6 +240,8 @@ require("neo-tree").setup({
 		},
 	},
 	buffers = {
+		follow_current_file = true,
+		group_empty_dirs = true,
 		show_unloaded = true,
 		window = {
 			mappings = {
@@ -313,7 +331,8 @@ require("neo-tree").setup({
 		},
 		{
 			event = "file_opened",
-			handler = function(file_path)
+			-- handler = function(file_path)
+			handler = function()
 				--auto close
 				require("neo-tree").close_all()
 			end,

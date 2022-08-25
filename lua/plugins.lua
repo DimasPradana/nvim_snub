@@ -75,7 +75,7 @@ return require("packer").startup(function(use)
 			{
 				-- only needed if you want to use the "open_window_picker" command
 				"s1n7ax/nvim-window-picker",
-				tag = "1.*",
+				tag = "v1.*",
 				config = function()
 					require("window-picker").setup({
 						autoselect_one = true,
@@ -265,9 +265,26 @@ return require("packer").startup(function(use)
 
 	-- {{{ copilot
 	--[[ use({
-		-- "github/copilot.vim",
-		"~/repos/copilot.vim",
+		"github/copilot.vim",
+		-- "~/repos/copilot.vim",
 	}) -- }}} ]]
+
+	-- {{{ copilot lua
+	-- use({
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	event = { "VimEnter" },
+	-- 	config = function()
+	-- 		vim.defer_fn(function()
+	-- 			require("copilot").setup()
+	-- 		end, 100)
+	-- 	end,
+	-- })
+	-- }}}
+	-- copilot cmp
+	-- use ({
+	--    "zbirenbaum/copilot-cmp",
+	--    module = "copilot_cmp",
+	-- })
 
 	-- {{{ colorizer
 	use({
@@ -681,7 +698,7 @@ return require("packer").startup(function(use)
 	-- {{{ mason lsp manager
 	use({
 		"williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+		"williamboman/mason-lspconfig.nvim",
 		-- event = "BufRead",
 		config = function()
 			require("plugins/mason")

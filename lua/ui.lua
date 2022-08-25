@@ -127,15 +127,26 @@ local function lsp()
 	return errors .. warnings .. hints .. info .. "%#Normal#"
 end
 
+function getfiletypeicon(filetype)
+	local icon = require("nvim-web-devicons").get_icon_by_filetype(filetype)
+	-- local icon, color = require("nvim-web-devicons").get_icon_color_by_filetype(filetype)
+	return string.format("  %s  ", icon)
+end
+
 local function filetype()
-	return string.format(" %s ", vim.bo.filetype):upper()
+	-- return string.format(" %s ", vim.bo.filetype):upper()
+	-- return string.format(" %s ", vim.bo.filetype)
+
+	local ft = string.format("%s", vim.bo.filetype)
+	return getfiletypeicon(ft)
 end
 
 local function lineinfo()
 	if vim.bo.filetype == "alpha" then
 		return ""
 	end
-	return " %P %l:%c "
+	-- return " %P %l:%c "
+	return " [%l:%c] "
 end
 
 local vcs = function()
@@ -181,6 +192,7 @@ Statusline.active = function()
 		lsp(),
 		--[[ gps.is_available(),
 		gps.get_location(), ]]
+		-- "%=%#StatusLineExtra#",
 		"%=%#StatusLineExtra#",
 		filetype(),
 		lineinfo(),
@@ -201,7 +213,7 @@ function Statusline.packer()
 end
 
 function Statusline.focusLost()
-	return "%#StatusLineNC# Focus Lost Kang %#filename()#"
+	return "%#StatusLineNC# Focus Lost Kakak %#filename()#"
 end
 
 function Statusline.telescopePrompt()
@@ -220,7 +232,7 @@ api.nvim_exec(
   au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.focusLost()
   augroup END
 ]],
-	false
+	true
 )
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

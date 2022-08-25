@@ -11,6 +11,8 @@ local buffer = require("cmp_buffer")
 
 -- vim.api.nvim_set_keymap("i", "<right>", 'copilot#Accept("")', { expr = true, silent = true })
 
+-- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -75,6 +77,7 @@ cmp.setup({
 				nvim_lua = "[Lua]",
 				path = "[Path]",
 				file = "[FILE]",
+				copilot = "[Copilot]",
 			},
 		}),
 	},
@@ -89,7 +92,9 @@ cmp.setup({
 })
 
 cmp.setup.cmdline("/", {
+  mapping = cmp.mapping.preset.cmdline(),
 	sources = cmp.config.sources({
+		-- { name = "copilot" },
 		{ name = "nvim_lsp_document_symbol" },
 	}, {
 		{ name = "buffer" },
@@ -106,8 +111,10 @@ cmp.setup.cmdline("/", {
 })
 
 cmp.setup.cmdline(":", {
+  mapping = cmp.mapping.preset.cmdline(),
 	sources = {
 		{ name = "cmdline" },
+		{ name = "path" },
 	},
 	view = {
 		entries = {
