@@ -27,6 +27,7 @@ end
 local fn = vim.fn
 local api = vim.api
 -- local gps = require("nvim-gps")
+local navic = require("nvim-navic")
 
 local modes = {
 	["n"] = "NORMAL",
@@ -194,6 +195,7 @@ Statusline.active = function()
 		gps.get_location(), ]]
 		-- "%=%#StatusLineExtra#",
 		"%=%#StatusLineExtra#",
+    navic.get_location(),
 		filetype(),
 		lineinfo(),
 	})

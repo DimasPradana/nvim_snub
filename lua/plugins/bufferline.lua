@@ -116,7 +116,7 @@ require("bufferline").setup({
 		-- 	return buffer_a.modified > buffer_b.modified
 		-- end,
 	},
-	groups = {
+	--[[ groups = {
 		options = {
 			toggle_hidden_on_enter = true, -- when you re-enter a hidden group this options re-opens that group so the buffer is visible
 		},
@@ -142,7 +142,7 @@ require("bufferline").setup({
 				},
 			},
 		},
-	},
+	}, ]]
 })
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

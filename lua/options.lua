@@ -108,6 +108,12 @@ vim.cmd([[colorscheme tokyonight]])
 -- vim.g.catpuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
 -- vim.cmd([[colorscheme catppuccin]])
 
+-- winbar
+-- vim.o.winbar = "%{%v:lua.require('utils').eval()%}"
+
+-- navic
+vim.o.statusline = "%{%v:lua.require'nvim-navic'.get_location()%}"
+
 -- formatter on save
 vim.api.nvim_exec(
 	[[

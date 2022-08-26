@@ -1,4 +1,5 @@
 -- local c = require("lsp/utils")
+local navic = require("nvim-navic")
 
 require("lspconfig").pyright.setup({
 	settings = {
@@ -11,8 +12,9 @@ require("lspconfig").pyright.setup({
 			},
 		},
 	},
-	on_attach = function()
+	on_attach = function(client, bufnr)
 		require("notify")("LSP python aktif pak", "info")
+		navic.attach(client, bufnr)
 	end,
 })
 

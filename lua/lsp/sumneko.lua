@@ -1,5 +1,6 @@
 local sumneko_root = os.getenv("HOME") .. "/repos/lua-language-server"
 local c = require("lsp/utils")
+local navic = require("nvim-navic")
 
 require("lspconfig").sumneko_lua.setup({
 	cmd = {
@@ -35,18 +36,22 @@ require("lspconfig").sumneko_lua.setup({
 			},
 		},
 	},
-	on_attach = function(client)
+	-- on_attach = function(client)
+	on_attach = function(client, bufnr)
 		require("notify")("LSP lua aktif pak", "info")
+
 		client.server_capabilities.document_formatting = true -- coba null-ls default formatting
 		client.server_capabilities.document_range_formatting = true
-		vim.api.nvim_buf_set_keymap(0, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true })
+		--[[ vim.api.nvim_buf_set_keymap(0, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true })
 		vim.api.nvim_buf_set_keymap(0, "n", "ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true })
 		vim.api.nvim_buf_set_keymap(0, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true })
 		vim.api.nvim_buf_set_keymap(0, "n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { noremap = true })
 		vim.api.nvim_buf_set_keymap(0, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { noremap = true })
 		vim.api.nvim_buf_set_keymap(0, "n", "dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", { noremap = true })
-		vim.api.nvim_buf_set_keymap(0, "n", "dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { noremap = true })
+		vim.api.nvim_buf_set_keymap(0, "n", "dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { noremap = true }) ]]
 		-- vim.api.nvim_buf_set_keymap(0, "n", "gr", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true })
+
+		navic.attach(client, bufnr)
 	end,
 })
 

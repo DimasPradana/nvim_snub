@@ -21,6 +21,16 @@ function M.custom_cwd()
 	return vim.loop.cwd()
 end
 
+--[[ function M.eval()
+	-- cara cek api pakai :lua = nama api, misal vim.api.nvim_eval_statusline("%f", {}).str
+	local file_path = vim.api.nvim_eval_statusline("%f", {}).str
+	local modified = vim.api.nvim_eval_statusline("%M", {}).str == "+" and "⦿" or "" -- jika ada modifikasi munculkan icon "⦿", jika tidak string kosong
+
+	file_path = file_path:gsub("/", " ➤  ")
+
+	return string.format("%s %s", file_path, modified)
+end ]]
+
 -- stylua: ignore start
 function M.nmap(lhs, rhs) M.map('n', lhs, rhs) end
 

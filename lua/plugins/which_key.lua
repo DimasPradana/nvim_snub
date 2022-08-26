@@ -39,6 +39,8 @@ wk.register({
 				t = { "<CMD>lua require('telescope.builtin').lsp_type_definitions()<CR>", "lsp type definitions" },
 			},
 			l = { "<CMD>lua print(vim.inspect(vim.lsp.buf_get_clients()))<CR>", "print LSP" },
+			k = { "<CMD>lua print(vim.inspect(vim.lsp.buf.hover()))<CR>", "hover" },
+			R = { "<CMD>lua print(vim.inspect(vim.lsp.buf.rename()))<CR>", "rename" },
 		},
 	},
 }) -- }}}
@@ -207,6 +209,16 @@ wk.register({
 			d = { "<CMD>set nolist<CR>", "Set No List" },
 			l = { "<CMD>set listchars<CR>", "show listchars" },
 			v = { "<CMD>NvimContextVtToggle<CR>", "show virtual text" },
+		},
+	},
+}) --}}}
+
+--{{{ delete buffer
+wk.register({
+	["<leader>"] = {
+		b = {
+			name = "buffer",
+			d = { "<CMD>bd!<CR>", "Close Buffer" },
 		},
 	},
 }) --}}}

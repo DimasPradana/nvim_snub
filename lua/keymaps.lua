@@ -13,7 +13,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- {{{ Delete Buffer
-nnoremap("<A-j>", ":bd<CR>") -- }}}
+nnoremap("<A-j>", ":bd!<CR>") -- }}}
 
 -- {{{ jk to normal mode
 inoremap("jk", "<Esc>")
@@ -42,10 +42,16 @@ exprnnoremap("j", "v:count == 0 ? 'gj' : 'j'") -- }}}
 
 -- {{{ bufferline
 nnoremap("<A-l>", "<cmd>BufferLineCycleNext<cr>") -- next
-nnoremap("<A-h>", "<cmd>BufferLineCyclePrev<cr>") -- previous -- }}}
--- <C-x> go to file selection as a split   
--- <C-v> go to file selection as a vsplit   
--- <C-t> go to a file in a new tab
+nnoremap("<A-h>", "<cmd>BufferLineCyclePrev<cr>") -- previous
+-- <C-x> go to file selection as a split
+-- <C-v> go to file selection as a vsplit
+-- <C-t> go to a file in a new tab -- }}}
+
+-- {{{ navigate between split
+-- nnoremap("<A-l>", "<C-W>l")
+-- nnoremap("<A-h>", "<C-W>h")
+-- nnoremap("<A-k>", "<C-W>k")
+-- nnoremap("<A-j>", "<C-W>j") -- }}}
 
 -- {{{ searchbox
 -- nnoremap("/", "<cmd>lua require('searchbox').match_all({clear_matches = true})<cr>") -- run searchbox -- }}}

@@ -280,11 +280,12 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 	-- }}}
-	-- copilot cmp
+
+	-- {{{ copilot cmp
 	-- use ({
 	--    "zbirenbaum/copilot-cmp",
 	--    module = "copilot_cmp",
-	-- })
+	-- }) --}}}
 
 	-- {{{ colorizer
 	use({
@@ -390,6 +391,14 @@ return require("packer").startup(function(use)
 				prefix = "s",
 			})
 		end,
+
+		-- "kylechui/nvim-surround",
+		-- tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+		-- config = function()
+		-- 	require("nvim-surround").setup({
+		-- 		-- Configuration here, or leave empty to use defaults
+		-- 	})
+		-- end,
 	}) -- }}}
 
 	-- {{{ tokyonight themes
@@ -676,6 +685,18 @@ return require("packer").startup(function(use)
 		end,
 	}) --}}} ]]
 
+	-- {{{ navic
+	use({
+		"SmiteshP/nvim-navic",
+		-- event = "BufRead",
+		requires = {
+			"neovim/nvim-lspconfig",
+		},
+		config = function()
+			require("plugins/navic")
+		end,
+	}) --}}}
+
 	-- {{{ tabularize
 	use({
 		"godlygeek/tabular",
@@ -710,6 +731,15 @@ return require("packer").startup(function(use)
 		"simrat39/symbols-outline.nvim",
 		-- event = "BufRead",
 	}) -- }}}
+
+	-- {{{ winbar show function
+	--[[ use({
+		"fgheng/winbar.nvim",
+		event = "BufRead",
+		config = function()
+			require("plugins/winbar")
+		end,
+	}) -- }}} ]]
 
 	-- TODO: nvim dashboard
 	-- TODO: neovim bootstraping
