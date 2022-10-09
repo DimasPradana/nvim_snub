@@ -2,6 +2,8 @@ local c = require("lsp/utils")
 local navic = require("nvim-navic")
 
 require("lspconfig").intelephense.setup({
+	cmd = { "intelephense", "--stdio" },
+	filetypes = { "php" },
 	root_dir = c.custom_cwd,
 	on_attach = function(client, bufnr)
 		require("notify")("LSP intelephense aktif pak", "info")
