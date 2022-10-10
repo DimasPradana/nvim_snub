@@ -4,7 +4,8 @@ local navic = require("nvim-navic")
 require("lspconfig").intelephense.setup({
 	cmd = { "intelephense", "--stdio" },
 	filetypes = { "php" },
-	root_dir = c.custom_cwd,
+	-- root_dir = c.custom_cwd,
+	root_dir = require("lspconfig").util.root_pattern("composer.json", ".git"),
 	on_attach = function(client, bufnr)
 		require("notify")("LSP intelephense aktif pak", "info")
 		--[[ vim.api.nvim_buf_set_keymap(0, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true })

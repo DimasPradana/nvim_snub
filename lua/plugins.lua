@@ -136,6 +136,16 @@ return require("packer").startup(function(use)
 		end,
 	}) -- }}}
 
+	-- {{{ mason lsp manager
+	use({
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		-- event = "BufRead",
+		config = function()
+			require("plugins/mason")
+		end,
+	}) -- }}}
+
 	-- {{{ treesitter
 	use({
 		-- "nvim-treesitter/nvim-treesitter",
@@ -656,16 +666,6 @@ return require("packer").startup(function(use)
 		filetype = { "laravel" },
 		config = function()
 			-- require("plugins/gitsigns")
-		end,
-	}) -- }}}
-
-	-- {{{ mason lsp manager
-	use({
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		-- event = "BufRead",
-		config = function()
-			require("plugins/mason")
 		end,
 	}) -- }}}
 
