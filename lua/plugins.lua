@@ -317,7 +317,7 @@ return require("packer").startup(function(use)
 		"numToStr/Comment.nvim",
 		event = "BufRead",
 		config = function()
-      require('plugins/comment')
+			require("plugins/comment")
 		end,
 	}) -- }}}
 
@@ -356,20 +356,12 @@ return require("packer").startup(function(use)
 
 	-- {{{ tokyonight themes
 	use({
-		"folke/tokyonight.nvim",
-		--  event = "ColorSchemePre",
-		--  config = function()
-		--  --  require("plugins/tokyonight")
-		--  vim.g.tokyonight_style = "night"
-		--  vim.g.tokyonight_italic_functions = true
-		--  vim.g.tokyonight_italic_comments = true
-		--  vim.g.tokyonight_italic_variables = true
-		--  vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
-		--  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-		--  vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
-		--  -- Load the colorscheme
-		--  vim.cmd([[colorscheme tokyonight]])
-		--  end,
+		-- 	"folke/tokyonight.nvim",
+		"DimasPradana/tokyonight.nvim",
+		-- 	--  event = "ColorSchemePre",
+		config = function()
+			require("plugins/tokyonight")
+		end,
 	}) -- }}}
 
 	-- {{{ catppuccin themes
@@ -392,13 +384,15 @@ return require("packer").startup(function(use)
 	}) -- }}}
 
 	-- {{{ formatter
-	use({
-		"sbdchd/neoformat",
-		event = "BufRead",
-		--  config = function()
-		--  require("plugins/blankline")
-		--  end,
-	}) -- }}}
+	-- use({
+	-- 	"sbdchd/neoformat",
+	-- 	event = "BufRead",
+	-- 	config = function()
+	-- 		vim.g.neoformat_try_node_exe = 1
+	-- 		vim.g.neoformat_verbose = 1
+	-- 		-- vim.g.neoformat_run_all_formatters = 1
+	-- 	end,
+	-- }) -- }}}
 
 	-- {{{ nvim notify
 	use({
@@ -490,15 +484,15 @@ return require("packer").startup(function(use)
 	}) -- }}}
 
 	-- {{{ null-ls
-	--[[ use({
+	use({
 		"jose-elias-alvarez/null-ls.nvim",
-		event = "BufRead",
+		-- event = "BufRead",
 		-- cmd = "null_ls",
 		config = function()
 			require("plugins/null-ls")
 		end,
 		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-	}) -- }}} ]]
+	}) -- }}}
 
 	-- {{{ which key
 	use({
