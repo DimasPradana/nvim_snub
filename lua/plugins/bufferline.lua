@@ -46,6 +46,11 @@ require("bufferline").setup({
 		-- end,
 		mode = "buffers", -- set to "tabs" to only show tabpages instead
 		numbers = "both", -- "none" | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
+		hover = {
+			enabled = true,
+			delay = 200,
+			reveal = { "close" },
+		},
 		close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
 		right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
 		left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
