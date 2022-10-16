@@ -55,6 +55,7 @@ cmp.setup({
 		{ name = "nvim_lua" },
 		-- { name = "copilot" },
 		{ name = "nvim_lsp_signature_help" },
+		{ name = "cmp_tabnine" },
 	}),
 	preselect = cmp.PreselectMode.None,
 	view = {
@@ -77,7 +78,8 @@ cmp.setup({
 				nvim_lua = "[Lua]",
 				path = "[Path]",
 				file = "[FILE]",
-				copilot = "[Copilot]",
+				-- copilot = "[Copilot]",
+				cmp_tabnine = "[TN]",
 			},
 		}),
 	},
@@ -92,7 +94,7 @@ cmp.setup({
 })
 
 cmp.setup.cmdline("/", {
-  mapping = cmp.mapping.preset.cmdline(),
+	mapping = cmp.mapping.preset.cmdline(),
 	sources = cmp.config.sources({
 		-- { name = "copilot" },
 		{ name = "nvim_lsp_document_symbol" },
@@ -111,7 +113,7 @@ cmp.setup.cmdline("/", {
 })
 
 cmp.setup.cmdline(":", {
-  mapping = cmp.mapping.preset.cmdline(),
+	mapping = cmp.mapping.preset.cmdline(),
 	sources = {
 		{ name = "cmdline" },
 		{ name = "path" },
