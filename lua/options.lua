@@ -39,7 +39,7 @@ vim.o.expandtab     = true
 vim.o.tabstop       = 2 -- Tabstop
 vim.o.softtabstop   = 2
 vim.o.shiftwidth    = 2
-vim.o.scrolloff     = 99 -- Vertical Scroll Offset
+-- vim.o.scrolloff     = 99 -- Vertical Scroll Offset
 -- vim.o.scrolloff       = 21  	    -- Vertical Scroll Offset
 vim.o.sidescrolloff = 8 -- Horizontal Scroll Offset
 vim.o.mouse         = 'a' -- Enable mouse mode
@@ -98,14 +98,14 @@ vim.g.tokyonight_italic_functions = true
 vim.g.tokyonight_italic_variables = true
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 -- Change the "hint" color to the "orange" color, and make the "error" color bright red
--- vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
+vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
 vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000", bg_popup = "blue7" }
 vim.g.tokyonight_colors = { bg_popup = "blue7" }
 -- Load the colorscheme
 vim.cmd([[colorscheme tokyonight]])
 
 -- catppuccin themes
--- vim.g.catpuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
+-- vim.g.catpuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 -- vim.cmd([[colorscheme catppuccin]])
 
 -- winbar
@@ -136,13 +136,13 @@ vim.o.statusline = "%{%v:lua.require'nvim-navic'.get_location()%}"
 
 -- Highlight on yank
 vim.api.nvim_exec(
-  [[
+	[[
   augroup YankHighlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup END
-]] ,
-  false
+]],
+	false
 )
 
 -- show line diagnostics on hover

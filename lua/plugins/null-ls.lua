@@ -88,19 +88,41 @@ null_ls.setup({
 	-- end,
 	--
 	sources = {
-		null_ls.builtins.code_actions.eslint,
-		null_ls.builtins.diagnostics.eslint,
+		-- null_ls.builtins.code_actions.eslint,
+		-- null_ls.builtins.diagnostics.eslint,
 		null_ls.builtins.diagnostics.php,
-    null_ls.builtins.diagnostics.golangci_lint,
+		null_ls.builtins.diagnostics.golangci_lint,
+		null_ls.builtins.diagnostics.flake8,
 		null_ls.builtins.formatting.blade_formatter.with({
 			filetypes = { "blade" },
 		}),
 		null_ls.builtins.formatting.stylua.with({
 			filetypes = { "lua" },
 		}),
-		null_ls.builtins.formatting.prettier.with({
+		--[[ null_ls.builtins.formatting.prettier.with({
 			filetypes = { "html", "json", "markdown", "php", "yaml" },
 			extra_filetypes = { "svelte", "toml" },
+		}), ]]
+		null_ls.builtins.formatting.prettierd.with({
+			filetypes = {
+				"javascript",
+				"javascriptreact",
+				"typescript",
+				"typescriptreact",
+				"vue",
+				"css",
+				"scss",
+				"less",
+				"html",
+				"json",
+				"jsonc",
+				"yaml",
+				"markdown",
+				"markdown.mdx",
+				"graphql",
+				"handlebars",
+			},
+			-- extra_filetypes = { "svelte", "toml" },
 		}),
 		null_ls.builtins.formatting.gofmt,
 		null_ls.builtins.formatting.gofumpt,
@@ -110,9 +132,9 @@ null_ls.setup({
 		-- 		diagnostic.code = diagnostic.message_id
 		-- 	end,
 		-- }),
-		null_ls.builtins.diagnostics.flake8,
 		null_ls.builtins.formatting.isort,
 		null_ls.builtins.formatting.black,
+		-- null_ls.builtins.formatting.eslint,
 		--[[ null_ls.builtins.formatting.phpcsfixer,
 		null_ls.builtins.formatting.phpcbf, ]]
 	},

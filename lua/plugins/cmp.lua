@@ -3,7 +3,7 @@ vim.cmd([[ packadd nvim-cmp ]])
 local cmp = require("cmp")
 local lspkind = require("lspkind")
 local buffer = require("cmp_buffer")
-local tabnine = require("cmp_tabnine.config")
+-- local tabnine = require("cmp_tabnine.config")
 
 -- Copilot
 -- vim.b.copilot_enabled = false
@@ -56,7 +56,7 @@ cmp.setup({
 		{ name = "nvim_lua" },
 		-- { name = "copilot" },
 		{ name = "nvim_lsp_signature_help" },
-		{ name = "cmp_tabnine" },
+		-- { name = "cmp_tabnine" },
 	}),
 	preselect = cmp.PreselectMode.None,
 	view = {
@@ -80,7 +80,7 @@ cmp.setup({
 				path = "[Path]",
 				file = "[FILE]",
 				-- copilot = "[Copilot]",
-				cmp_tabnine = "[TN]",
+				-- cmp_tabnine = "[TN]",
 			},
 		}),
 	},
@@ -130,7 +130,7 @@ cmp.setup.cmdline(":", {
 	},
 })
 
-tabnine.setup({
+--[[ tabnine.setup({
 	max_lines = 1000,
 	max_num_results = 20,
 	sort = true,
@@ -142,6 +142,6 @@ tabnine.setup({
 		-- lua = true
 	},
 	show_prediction_strength = false,
-})
+}) ]]
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
