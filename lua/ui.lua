@@ -128,7 +128,7 @@ local function lsp()
 	return errors .. warnings .. hints .. info .. "%#Normal#"
 end
 
-function getfiletypeicon(filetype)
+function Getfiletypeicon(filetype)
 	local icon = require("nvim-web-devicons").get_icon_by_filetype(filetype)
 	-- local icon, color = require("nvim-web-devicons").get_icon_color_by_filetype(filetype)
 	return string.format("  %s  ", icon)
@@ -139,7 +139,7 @@ local function filetype()
 	-- return string.format(" %s ", vim.bo.filetype)
 
 	local ft = string.format("%s", vim.bo.filetype)
-	return getfiletypeicon(ft)
+	return Getfiletypeicon(ft)
 end
 
 local function lineinfo()
@@ -195,7 +195,7 @@ Statusline.active = function()
 		gps.get_location(), ]]
 		-- "%=%#StatusLineExtra#",
 		"%=%#StatusLineExtra#",
-    navic.get_location(),
+		navic.get_location(),
 		filetype(),
 		lineinfo(),
 	})

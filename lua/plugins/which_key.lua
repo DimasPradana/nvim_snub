@@ -1,12 +1,88 @@
 vim.cmd([[ packadd which-key ]])
 
 local wk = require("which-key")
+-- local keymap = require "keymap"
+
+-- colors
+vim.api.nvim_set_hl(0, "WhichKey", { fg = "#db4b4b", bg = "NONE" })
+vim.api.nvim_set_hl(0, "WhichKeyGroup", { fg = "#9ece6a", bg = "NONE" })
+vim.api.nvim_set_hl(0, "WhichKeySeparator", { fg = "#c0caf5", bg = "NONE" })
+vim.api.nvim_set_hl(0, "WhichKeyDesc", { fg = "#7aa2f7", bg = "NONE" })
+vim.api.nvim_set_hl(0, "WhichKeyFloat", { fg = "#ff9e64", bg = "NONE" })
+vim.api.nvim_set_hl(0, "WhichKeyBorder", { fg = "#ff9e64", bg = "NONE" })
+vim.api.nvim_set_hl(0, "WhichKeyValue", { fg = "#7aa2f7", bg = "NONE" })
+
 -- Which Key Configuration
 wk.setup({
-	window = { border = "single" },
+	plugins = {
+		marks = true, -- shows a list of your marks on ' and `
+		registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+		spelling = {
+			enabled = false, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
+			suggestions = 20, -- how many suggestions should be shown in the list?
+		},
+		-- the presets plugin, adds help for a bunch of default keybindings in Neovim
+		-- No actual key bindings are created
+		presets = {
+			operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+			motions = true, -- adds help for motions
+			text_objects = true, -- help for text objects triggered after entering an operator
+			windows = true, -- default bindings on <c-w>
+			nav = true, -- misc bindings to work with windows
+			z = true, -- bindings for folds, spelling and others prefixed with z
+			g = true, -- bindings for prefixed with g
+		},
+	},
+	-- add operators that will trigger motion and text object completion
+	-- to enable all native operators, set the preset / operators plugin above
+	operators = { gc = "Comments" },
+	key_labels = {
+		-- override the label used to display some keys. It doesn't effect WK in any other way.
+		-- For example:
+		-- ["<space>"] = "SPC",
+		-- ["<cr>"] = "RET",
+		-- ["<tab>"] = "TAB",
+	},
+	icons = {
+		breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
+		separator = "➜", -- symbol used between a key and it's label
+		group = "+", -- symbol prepended to a group
+	},
+	popup_mappings = {
+		scroll_down = "<c-d>", -- binding to scroll down inside the popup
+		scroll_up = "<c-u>", -- binding to scroll up inside the popup
+	},
+	window = {
+		border = { "⚈", "─", "⚈", "│", "⚈", "─", "⚈", "│" }, -- none, single, double, shadow
+		position = "top", -- bottom, top
+		margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+		padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+		winblend = 0,
+	},
 	layout = {
-		spacing = 12,
-		winblend = 0.5,
+		height = { min = 4, max = 25 }, -- min and max height of the columns
+		width = { min = 20, max = 40 }, -- min and max width of the columns
+		spacing = 10, -- spacing between columns
+		align = "center", -- align columns left, center or right
+	},
+	ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
+	hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
+	show_help = true, -- show help message on the command line when the popup is visible
+	show_keys = true, -- show the currently pressed key and its label as a message in the command line
+	triggers = "auto", -- automatically setup triggers
+	-- triggers = {"<leader>"} -- or specify a list manually
+	triggers_blacklist = {
+		-- list of mode / prefixes that should never be hooked by WhichKey
+		-- this is mostly relevant for key maps that start with a native binding
+		-- most people should not need to change this
+		i = { "j", "k" },
+		v = { "j", "k" },
+	},
+	-- disable the WhichKey popup for certain buf types and file types.
+	-- Disabled by deafult for Telescope
+	disable = {
+		buftypes = {},
+		filetypes = { "TelescopePrompt" },
 	},
 })
 
@@ -16,6 +92,14 @@ wk.register({
 		l = {
 			name = "Lua and LSP",
 			u = { "<CMD>echo '｡:.ﾟヽ(*´∀`)ﾉﾟ.:｡' | luafile %<CR>", "source lua" },
+			-- u = { "<CMD>lua require('notify')('sourcing nvim pak', 'info') | luafile %<CR>", "sourcing nvim" },
+			--[[ u = {
+				function()
+					require("notify")("sourcing nvim kang", "info")
+					print("hello")
+				end,
+				"sourcing nvim",
+			}, ]]
 			r = { "<CMD>lua require('telescope.builtin').lsp_references()<CR>", "lsp references" },
 			s = {
 				name = "lsp symbols",
@@ -106,6 +190,11 @@ wk.register({
 			w = { "<CMD>HopAnywhere<CR>", "Any Where" },
 			l = { "<CMD>HopAnywhereCurrentLine<CR>", "Current Line" },
 		},
+		hm = {
+			name = "Harpoon",
+			a = { "<CMD>lua require('harpoon.mark').add_file()<CR>", "add mark harpoon" },
+			t = { "<CMD>Telescope harpoon marks<CR>", "show harpoon on telescope" },
+		},
 	},
 }) -- }}}
 
@@ -127,6 +216,17 @@ wk.register({
 		g = {
 			name = "go and glow",
 			r = { "<CMD>!go run ./main.go<CR>", "go run" }, -- go run main
+			--  BUG: snub on Mon 05 Dec 2022 09:53:53 : belum selesai untuk buat function pakai feedkey seperti di keymaps --
+			--[[ r = {
+				function()
+					-- samid(":vs term://fish <CR>", "n")
+					-- samid("aecho 'hello'<CR>", "n")
+					-- "<CMD>vs term://fish <CR>"
+					vim.api.nvim_command("vs term://fish")
+					print("hello")
+				end,
+				"run go lang",
+			}, -- go run main ]]
 			l = { "<CMD>Glow<CR>", "markdown previewer" },
 		},
 	},
@@ -162,18 +262,19 @@ wk.register({
 wk.register({
 	["<leader>"] = {
 		p = {
-			name = "Packer",
+			name = "Packer and yank",
 			s = { "<CMD>PackerSync<CR>", "Packer Sync" },
 			c = { "<CMD>PackerCompile<CR>", "Packer Compile" },
 			i = { "<CMD>PackerInstall<CR>", "Packer Install" },
 			l = { "<CMD>PackerClean<CR>", "Packer Clean" },
 			p = { "<CMD>PackerProfile<CR>", "Packer Profile" },
 			u = { "<CMD>PackerUpdate<CR>", "Packer Update" },
+			y = { "<CMD>YankyRingHistory<CR>", "Yanky" },
 		},
 	},
 }) -- }}}
 
---{{{ refresh brave
+-- {{{ refresh brave
 wk.register({
 	["<leader>"] = {
 		r = {
@@ -183,7 +284,7 @@ wk.register({
 	},
 }) --}}}
 
---{{{ Distant
+-- {{{ Distant
 -- wk.register({
 -- 	["<leader>"] = {
 -- 		d = {
@@ -193,14 +294,14 @@ wk.register({
 -- 	},
 -- }) --}}}
 
---{{{ toggle indent blank line
+-- {{{ toggle indent blank line
 wk.register({
 	["<leader>"] = {
 		i = { "<CMD>IndentBlanklineToggle<CR>", "Toggle IndentBlankline" }, -- Toggle indent blank line
 	},
 }) --}}}
 
---{{{ toggle list char
+-- {{{ toggle list char
 wk.register({
 	["<leader>"] = {
 		w = {
@@ -209,17 +310,36 @@ wk.register({
 			d = { "<CMD>set nolist<CR>", "Set No List" },
 			l = { "<CMD>set listchars<CR>", "show listchars" },
 			v = { "<CMD>NvimContextVtToggle<CR>", "show virtual text" },
+			w = { "<CMD>set wrap<CR>", "set wrap" },
+			n = { "<CMD>set nowrap<CR>", "set nowrap" },
 		},
 	},
 }) --}}}
 
---{{{ delete buffer
+-- {{{ delete buffer
 wk.register({
 	["<leader>"] = {
 		b = {
 			name = "buffer",
 			d = { "<CMD>bd!<CR>", "Close Buffer" },
 		},
+	},
+}) --}}}
+
+-- {{{ symbols outline
+wk.register({
+	["<leader>"] = {
+		a = {
+			name = "symbols outline",
+			s = { "<CMD>SymbolsOutline<CR>", "tagbar" },
+		},
+	},
+}) --}}}
+
+-- {{{ undotree
+wk.register({
+	["<leader>"] = {
+		u = { "<CMD>lua require('undotree').toggle()<CR>", "undotree" },
 	},
 }) --}}}
 

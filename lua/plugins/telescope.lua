@@ -1,29 +1,31 @@
 vim.cmd([[ packadd telescope.nvim ]])
 
--- borderless
---[[ local TelescopePrompt = {
-	TelescopePromptNormal = {
-		bg = "#2d3149",
-	},
-	TelescopePromptBorder = {
-		bg = "#2d3149",
-	},
-	TelescopePromptTitle = {
-		fg = "#2d3149",
-		bg = "#2d3149",
-	},
-	TelescopePreviewTitle = {
-		fg = "#1F2335",
-		bg = "#1F2335",
+-- colors
+local TelescopePrompt = {
+	TelescopeBorder = {
+		fg = "#9ece6a",
+		bg = "NONE",
 	},
 	TelescopeResultsTitle = {
-		fg = "#1F2335",
-		bg = "#1F2335",
+		fg = "#ff9e64",
+		bg = "NONE",
 	},
+	TelescopePromptTitle = {
+		fg = "#ff9e64",
+		bg = "NONE",
+	},
+	TelescopePreviewTitle = {
+		fg = "#ff9e64",
+		bg = "NONE",
+	},
+	--[[ TelescopeSelection = {
+		fg = "#24283b",
+		bg = "#e0af68",
+	}, ]]
 }
 for hl, col in pairs(TelescopePrompt) do
 	vim.api.nvim_set_hl(0, hl, col)
-end ]]
+end
 
 require("telescope").setup({
 	defaults = {
@@ -130,5 +132,7 @@ require("telescope").setup({
 -- To get ui-select loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 require("telescope").load_extension("ui-select")
+-- require("telescope").load_extension("yank_history")
+require("telescope").load_extension("harpoon")
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

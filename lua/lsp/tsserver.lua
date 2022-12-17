@@ -29,6 +29,12 @@ require("lspconfig").tsserver.setup({
 		require("notify")("LSP tsserver aktif pak", "info")
 		-- vim.api.nvim_buf_set_keymap(0, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true })
 		navic.attach(client, bufnr)
+    require "lsp_signature".on_attach({
+      bind = true, -- This is mandatory, otherwise border config won't get registered.
+        handler_opts = {
+          border = "rounded"
+        }
+    }, bufnr)  -- Note: add in lsp client on-attach
 	end,
 })
 

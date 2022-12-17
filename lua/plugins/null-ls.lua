@@ -9,53 +9,9 @@ local lsp_formatting = function(bufnr)
 		bufnr = bufnr,
 	})
 end
+
+-- if you want to set up formatting on save, you can use this as a callback
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
--- local async_formatting = function(bufnr)
--- 	bufnr = bufnr or vim.api.nvim_get_current_buf()
---
--- 	vim.lsp.buf_request(
--- 		bufnr,
--- 		"textDocument/formatting",
--- 		{ textDocument = { uri = vim.uri_from_bufnr(bufnr) } },
--- 		function(err, res)
--- 			if err then
--- 				local err_msg = type(err) == "string" and err or err.message
--- 				-- you can modify the log message / level (or ignore it completely)
--- 				vim.notify("formatting: " .. err_msg, vim.log.levels.WARN)
--- 				return
--- 			end
---
--- 			-- don't apply results if buffer is unloaded or has been modified
--- 			if not vim.api.nvim_buf_is_loaded(bufnr) or vim.api.nvim_buf_get_option(bufnr, "modified") then
--- 				return
--- 			end
---
--- 			if res then
--- 				vim.lsp.util.apply_text_edits(res, bufnr)
--- 				vim.api.nvim_buf_call(bufnr, function()
--- 					vim.cmd("silent noautocmd update")
--- 				end)
--- 			end
--- 		end
--- 	)
--- end
--- local defaults = {
---   cmd = { "nvim" },
---   debounce = 250,
---   debug = false,
---   default_timeout = 5000,
---   diagnostic_config = nil,
---   diagnostics_format = "#{m}",
---   fallback_severity = vim.diagnostic.severity.ERROR,
---   log_level = "warn",
---   notify_format = "[null-ls] %s",
---   on_attach = nil,
---   on_init = nil,
---   on_exit = nil,
---   root_dir = require("null-ls.utils").root_pattern(".null-ls-root", "Makefile", ".git"),
---   sources = nil,
---   update_in_insert = false,
--- }
 
 null_ls.setup({
 	-- sources = {

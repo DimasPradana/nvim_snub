@@ -52,6 +52,12 @@ require("lspconfig").sumneko_lua.setup({
 		-- vim.api.nvim_buf_set_keymap(0, "n", "gr", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true })
 
 		navic.attach(client, bufnr)
+    require "lsp_signature".on_attach({
+      bind = true, -- This is mandatory, otherwise border config won't get registered.
+        handler_opts = {
+          border = "rounded"
+        }
+    }, bufnr)  -- Note: add in lsp client on-attach
 	end,
 })
 

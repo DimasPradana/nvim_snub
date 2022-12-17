@@ -12,7 +12,8 @@ local buffer = require("cmp_buffer")
 
 -- vim.api.nvim_set_keymap("i", "<right>", 'copilot#Accept("")', { expr = true, silent = true })
 
--- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+-- vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", {fg="#f7768e", bg="NONE"})
+-- vim.api.nvim_set_hl(0, "CmpItemKindBuffer", { fg = "#f7768e" })
 
 cmp.setup({
 	snippet = {
@@ -21,8 +22,18 @@ cmp.setup({
 		end,
 	},
 	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
+		completion = cmp.config.window.bordered({
+			border = { "⚈", "─", "⚈", "│", "⚈", "─", "⚈", "│" },
+			winhighlight = "Normal:Pmenu,FloatBorder:Error,Cursorline:IncSearch,Search:None",
+			side_padding = 0,
+			col_offset = 0,
+		}),
+		documentation = cmp.config.window.bordered({
+			border = { "⚈", "─", "⚈", "│", "⚈", "─", "⚈", "│" },
+			winhighlight = "Normal:Pmenu,FloatBorder:Character,Cursorline:IncSearch,Search:None",
+			side_padding = 0,
+			col_offset = 0,
+		}),
 	},
 	mapping = cmp.mapping.preset.insert({
 		["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -30,7 +41,7 @@ cmp.setup({
 		["<C-d>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-e>"] = cmp.mapping.close(),
-		["<C-Space>"] = cmp.mapping.complete(),
+		-- ["<C-Space>"] = cmp.mapping.complete(), -- ndak bisa dipake
 		-- ["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
 		["<CR>"] = function(fallback)
 			if cmp.visible() then

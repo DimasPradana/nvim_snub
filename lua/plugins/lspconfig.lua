@@ -108,5 +108,7 @@ require("lsp/svelte")
 require("lsp/emmet")
 -- require("lsp/cssls")
 -- require("lsp/efm")
+require("lsp/rust")
+require("lsp/sqls")
 
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker

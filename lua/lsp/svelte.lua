@@ -4,6 +4,12 @@
 require("lspconfig").svelte.setup({
 	on_attach = function(client, bufnr)
 		require("notify")("LSP svelte aktif pak", "info")
+    require "lsp_signature".on_attach({
+      bind = true, -- This is mandatory, otherwise border config won't get registered.
+        handler_opts = {
+          border = "rounded"
+        }
+    }, bufnr)  -- Note: add in lsp client on-attach
 		client.server_capabilities.completionProvider.triggerCharacters = {
 			".",
 			'"',

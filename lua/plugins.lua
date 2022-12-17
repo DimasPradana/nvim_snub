@@ -111,13 +111,17 @@ return require("packer").startup(function(use)
 
 	-- {{{ Bufferline
 	use({
-		-- "~/repos/bufferline.nvim",
+		-- 	-- "~/repos/bufferline.nvim",
 		"akinsho/bufferline.nvim",
-		tag = "v2.*",
+		tag = "v3.*",
 		event = "BufWinEnter",
+		-- after = "catppuccin",
 		requires = { { "kyazdani42/nvim-web-devicons" } },
 		config = function()
 			require("plugins/bufferline")
+			--[[ require("bufferline").setup({
+				highlights = require("catppuccin.groups.integrations.bufferline").get(),
+			}) ]]
 		end,
 	}) -- }}}
 
@@ -150,7 +154,11 @@ return require("packer").startup(function(use)
 	use({
 		-- "nvim-treesitter/nvim-treesitter",
 		"/home/snub/repos/nvim-treesitter",
-		run = ":TSUpdateSync",
+		-- run = "TSUpdateSync",
+		run = function()
+			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+			ts_update()
+		end,
 		-- event = "BufRead",
 		requires = {
 			-- debug stuff
@@ -370,14 +378,14 @@ return require("packer").startup(function(use)
 	}) -- }}}
 
 	-- {{{ catppuccin themes
-	use({
-		"catppuccin/nvim",
-		-- tag = "dev",
-		as = "catppuccin",
-		config = function()
-			require("plugins/catppuccin")
-		end,
-	}) -- }}}
+	-- use({
+	-- 	"catppuccin/nvim",
+	-- 	-- tag = "dev",
+	-- 	as = "catppuccin",
+	-- 	config = function()
+	-- 		require("plugins/catppuccin")
+	-- 	end,
+	-- }) -- }}}
 
 	-- {{{ indent line
 	use({
@@ -672,6 +680,9 @@ return require("packer").startup(function(use)
 	use({
 		"simrat39/symbols-outline.nvim",
 		-- event = "BufRead",
+		config = function()
+			require("plugins/symbols-outline")
+		end,
 	}) -- }}}
 
 	-- {{{ winbar show function
@@ -684,7 +695,7 @@ return require("packer").startup(function(use)
 	}) -- }}} ]]
 
 	-- {{{ noice/noise
-	use({
+	--[[ use({ -> buggy with lsp phpactor
 		"folke/noice.nvim",
 		config = function()
 			require("noice").setup()
@@ -697,7 +708,7 @@ return require("packer").startup(function(use)
 			--   If not available, we use `mini` as the fallback
 			"rcarriga/nvim-notify",
 		},
-	}) -- }}}
+	}) -- }}} ]]
 
 	-- {{{ golang
 	use({
@@ -710,8 +721,49 @@ return require("packer").startup(function(use)
 		},
 	}) -- }}}
 
-	-- TODO: nvim dashboard
-	-- TODO: neovim bootstraping
+	-- {{{ signature help
+	use({
+		"ray-x/lsp_signature.nvim",
+		-- config = function()
+		-- 	require("go").setup()
+		-- end,
+	}) -- }}}
+
+	-- {{{ yank yank yank
+	--[[ use({
+		"gbprod/yanky.nvim",
+		config = function()
+			require("yanky").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+	}) -- }}} ]]
+
+	-- {{{ undotree
+	use({
+		"jiaoshijie/undotree",
+		event = "BufRead",
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+		config = function()
+			require("plugins/undotree")
+		end,
+	}) -- }}}
+
+	-- {{{ sqls
+	use({
+		"nanotee/sqls.nvim",
+	}) -- }}}
+
+	-- {{{ chatGPT
+	--[[ use({
+		"terror/chatgpt.nvim",
+		run = "pip3 install -r requirements.txt",
+	}) -- }}} ]]
+
 	-- FIXME: nvim-lsp code_actions, diagnostics, hover, references, rename, signature, symbol_resolve, workspace_symbol not working yet
 end)
 

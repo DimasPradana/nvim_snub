@@ -57,6 +57,12 @@ require("lspconfig").gopls.setup({
 		vim.keymap.set("n", "dn", vim.diagnostic.goto_next, { buffer = 0 })
 		vim.keymap.set("n", "dp", vim.diagnostic.goto_prev, { buffer = 0 }) ]]
 		navic.attach(client, bufnr)
+    require "lsp_signature".on_attach({
+      bind = true, -- This is mandatory, otherwise border config won't get registered.
+        handler_opts = {
+          border = "rounded"
+        }
+    }, bufnr)  -- Note: add in lsp client on-attach
 	end,
 })
 

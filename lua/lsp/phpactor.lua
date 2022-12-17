@@ -8,6 +8,12 @@ require("lspconfig").phpactor.setup({
   on_attach = function(client, bufnr)
     require("notify")("LSP phpactor aktif pak", "info")
     navic.attach(client, bufnr)
+    require "lsp_signature".on_attach({
+      bind = true, -- This is mandatory, otherwise border config won't get registered.
+        handler_opts = {
+          border = "rounded"
+        }
+    }, bufnr)  -- Note: add in lsp client on-attach
   end,
   init_options = {
     ["language_server_phpstan.enabled"] = false,

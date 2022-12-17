@@ -12,6 +12,7 @@ require("mason-lspconfig").setup({
 	ensure_installed = {
 		"sumneko_lua",
 		"intelephense",
+		-- "rust_analyzer",
 	},
 })
 
@@ -79,5 +80,5 @@ local DEFAULT_SETTINGS = {
 		download_url_template = "https://github.com/%s/releases/download/%s/%s",
 	},
 
-  automatic_installation = true,
+	automatic_installation = true,
 }
