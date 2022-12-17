@@ -1,13 +1,4 @@
--- local dotenv = require("dotenv")
---
--- -- load env file
--- dotenv.load()
---
--- -- initiate
--- local svr14 = os.getenv("SVR14")
---
--- -- check
--- print("The value of SVR14 is: " .. svr14)
+require("../plugins.test")
 
 --  TODO: snub on Sun 18 Dec 2022 02:13:59 : dataSourceName harus ambil dari .env file, tidak di plain
 require("lspconfig").sqls.setup({
