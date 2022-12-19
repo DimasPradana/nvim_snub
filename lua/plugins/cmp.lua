@@ -1,16 +1,15 @@
 vim.cmd([[ packadd nvim-cmp ]])
 
+local has_words_before = function()
+	unpack = unpack or table.unpack
+	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
 local cmp = require("cmp")
 local lspkind = require("lspkind")
 local buffer = require("cmp_buffer")
--- local tabnine = require("cmp_tabnine.config")
-
--- Copilot
--- vim.b.copilot_enabled = false
--- vim.g.copilot_no_tab_map = true
--- vim.g.copilot_assume_mapped = true
-
--- vim.api.nvim_set_keymap("i", "<right>", 'copilot#Accept("")', { expr = true, silent = true })
+local luasnip = require("luasnip")
 
 -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", {fg="#f7768e", bg="NONE"})
 -- vim.api.nvim_set_hl(0, "CmpItemKindBuffer", { fg = "#f7768e" })
@@ -18,7 +17,9 @@ local buffer = require("cmp_buffer")
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body)
+			-- vim.fn["vsnip#anonymous"](args.body)
+			-- vim.fn["vsnip#anonymous"](args.body)
+			require("luasnip").lsp_expand(args.body)
 		end,
 	},
 	window = {
@@ -50,10 +51,34 @@ cmp.setup({
 				fallback()
 			end
 		end,
+
+		-- luasnip
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			elseif has_words_before() then
+				cmp.complete()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
 	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp", group_index = 1 },
-		{ name = "vsnip" },
+		-- { name = "vsnip" },
+		{ name = "luasnip", option = { show_autosnippets = true } },
 		{
 			name = "buffer",
 			keyword_length = 6,
@@ -65,7 +90,6 @@ cmp.setup({
 		},
 		{ name = "path", keyword_length = 2 },
 		{ name = "nvim_lua" },
-		-- { name = "copilot" },
 		{ name = "nvim_lsp_signature_help" },
 		-- { name = "cmp_tabnine" },
 	}),
@@ -86,12 +110,11 @@ cmp.setup({
 			menu = {
 				buffer = "[Buffer]",
 				nvim_lsp = "[LSP]",
-				vsnip = "[VSNIP]",
+				-- vsnip = "[VSNIP]",
+				luasnip = "[SNIP]",
 				nvim_lua = "[Lua]",
 				path = "[Path]",
 				file = "[FILE]",
-				-- copilot = "[Copilot]",
-				-- cmp_tabnine = "[TN]",
 			},
 		}),
 	},

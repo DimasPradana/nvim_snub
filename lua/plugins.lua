@@ -34,9 +34,10 @@ return require("packer").startup(function(use)
 
 	-- {{{ Telescope
 	use({
-		-- "nvim-telescope/telescope.nvim",
-		"~/repos/telescope.nvim",
-		event = "VimEnter",
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.x",
+		-- "~/repos/telescope.nvim",
+		-- event = "VimEnter",
 		requires = {
 			{ "nvim-lua/popup.nvim" },
 			{ "nvim-lua/plenary.nvim" },
@@ -64,7 +65,8 @@ return require("packer").startup(function(use)
 
 	-- {{{ NeoTree
 	use({
-		"~/repos/neo-tree.nvim",
+		-- "~/repos/neo-tree.nvim",
+		"nvim-neo-tree/neo-tree.nvim",
 		event = "BufRead",
 		branch = "v2.x",
 		requires = {
@@ -126,10 +128,10 @@ return require("packer").startup(function(use)
 	}) -- }}}
 
 	-- {{{ lush
-	use({
+	--[[ use({
 		-- "rktjmp/lush.nvim",
 		"~/repos/lush.nvim",
-	}) -- }}}
+	}) -- }}} ]]
 
 	-- {{{ lspconfig
 	use({
@@ -152,8 +154,8 @@ return require("packer").startup(function(use)
 
 	-- {{{ treesitter
 	use({
-		-- "nvim-treesitter/nvim-treesitter",
-		"/home/snub/repos/nvim-treesitter",
+		"nvim-treesitter/nvim-treesitter",
+		-- "/home/snub/repos/nvim-treesitter",
 		-- run = "TSUpdateSync",
 		run = function()
 			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
@@ -212,40 +214,37 @@ return require("packer").startup(function(use)
 
 	-- {{{ cmp
 	use({
-		-- "hrsh7th/nvim-cmp",
-		"~/repos/nvim-cmp",
+		"hrsh7th/nvim-cmp",
+		-- "~/repos/nvim-cmp",
 		-- event = "CursorMove",
 		requires = {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-cmdline",
 			"neovim/nvim-lspconfig",
-			-- "hrsh7th/cmp-nvim-lsp",
-			"~/repos/cmp-nvim-lsp",
+			"hrsh7th/cmp-nvim-lsp",
+			-- "~/repos/cmp-nvim-lsp",
 			"hrsh7th/cmp-nvim-lua",
-			-- "L3MON4D3/LuaSnip",
-			-- "~/repos/LuaSnip",
-			-- "saadparwaiz1/cmp_luasnip",
 			{
-				"~/repos/vim-vsnip",
-				event = "BufRead",
-				setup = function()
-					require("plugins/vsnip")
-					-- vim.cmd([[
-					--          " Jump forward or backward
-					--          imap <expr> <C-j> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-j>'
-					--          smap <expr> <C-j> vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-j>'
-					--          imap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
-					--          smap <expr> <C-k> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
-					--        " Expand
-					--        imap <expr> <C-n>   vsnip#expandable()  ? '<Plug>(vsnip-expand)' : '<C-n>'
-					--        ]])
+				"L3MON4D3/LuaSnip",
+				tag = "v<CurrentMajor>.*",
+				config = function()
+					require("plugins/luasnip")
 				end,
 			},
-			{
-				"hrsh7th/vim-vsnip-integ",
-			}, -- vsnip
-			"hrsh7th/cmp-vsnip", -- coba pake vsnip
+			-- "~/repos/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
+			-- {
+			-- 	"~/repos/vim-vsnip",
+			-- 	event = "BufRead",
+			-- 	setup = function()
+			-- 		require("plugins/vsnip")
+			-- 	end,
+			-- },
+			-- {
+			-- 	"hrsh7th/vim-vsnip-integ",
+			-- }, -- vsnip
+			-- "hrsh7th/cmp-vsnip", -- coba pake vsnip
 			-- "hrsh7th/cmp-copilot",
 			-- "~/repos/cmp-copilot",
 			--[[ {
@@ -409,8 +408,9 @@ return require("packer").startup(function(use)
 
 	-- {{{ nvim notify
 	use({
-		"~/repos/nvim-notify",
-		event = "BufRead",
+		-- "~/repos/nvim-notify",
+		"rcarriga/nvim-notify",
+		-- event = "BufRead",
 		config = function()
 			require("plugins/notify")
 		end,
@@ -509,7 +509,8 @@ return require("packer").startup(function(use)
 
 	-- {{{ which key
 	use({
-		"~/repos/which-key.nvim/",
+		-- "~/repos/which-key.nvim/",
+		"folke/which-key.nvim",
 		event = "BufWinEnter",
 		config = function()
 			require("plugins/which_key")
@@ -759,10 +760,24 @@ return require("packer").startup(function(use)
 	}) -- }}}
 
 	-- {{{ chatGPT
-	--[[ use({
-		"terror/chatgpt.nvim",
-		run = "pip3 install -r requirements.txt",
-	}) -- }}} ]]
+	use({
+		"jackMort/ChatGPT.nvim",
+		config = function()
+			-- require("chatgpt").setup({
+			require("plugins/chatgpt")
+		end,
+		requires = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+	})
+
+	use({
+		"aduros/ai.vim",
+		config = function() end,
+	})
+	-- }}}
 
 	-- FIXME: nvim-lsp code_actions, diagnostics, hover, references, rename, signature, symbol_resolve, workspace_symbol not working yet
 end)

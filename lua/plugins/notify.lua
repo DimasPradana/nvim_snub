@@ -1,5 +1,3 @@
-vim.cmd([[ packadd notify ]])
-
 require("notify").setup({})
 
 --[[ local function notify_output(command, opts)

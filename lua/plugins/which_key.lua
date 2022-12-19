@@ -343,4 +343,11 @@ wk.register({
 	},
 }) --}}}
 
+-- {{{ chatgpt
+wk.register({
+	["<leader>"] = {
+		ch = { "<CMD>:ChatGPT<CR>", "chatgpt" },
+	},
+}) --}}}
+
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
