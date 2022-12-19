@@ -158,8 +158,9 @@ return require("packer").startup(function(use)
 		-- "/home/snub/repos/nvim-treesitter",
 		-- run = "TSUpdateSync",
 		run = function()
-			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-			ts_update()
+			--[[ local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+			ts_update() ]]
+			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
 		end,
 		-- event = "BufRead",
 		requires = {
@@ -696,10 +697,11 @@ return require("packer").startup(function(use)
 	}) -- }}} ]]
 
 	-- {{{ noice/noise
-	--[[ use({ -> buggy with lsp phpactor
+	--[[ use({ -- -> buggy with lsp phpactor
 		"folke/noice.nvim",
 		config = function()
 			require("noice").setup()
+			-- require("plugins/noice")
 		end,
 		requires = {
 			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries

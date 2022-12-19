@@ -3,7 +3,7 @@ local M = {}
 
 local exprnnoremap = Utils.exprnnoremap
 local nnoremap = Utils.nnoremap
-local vnoremap = Utils.vnoremap
+-- local vnoremap = Utils.vnoremap
 -- local xnoremap = Utils.xnoremap
 local inoremap = Utils.inoremap
 local tnoremap = Utils.tnoremap
@@ -64,6 +64,10 @@ inoremap("<A-h>", "<left>") -- nav left on insert mode
 inoremap("<A-j>", "<down>") -- nav down on insert mode
 inoremap("<A-k>", "<up>") -- nav up on insert mode
 inoremap("<A-l>", "<right>") -- nav right on insert mode -- }}}
+
+-- {{{ pindah text di visual mode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- bawah
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- atas  -- }}}
 
 -- {{{ custom key
 function M.snubCustomKey(key, mode)
