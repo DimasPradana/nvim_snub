@@ -3,7 +3,7 @@ local nvim_lsp = require("lspconfig")
 
 require("lspconfig").tailwindcss.setup({
 	cmd = { "tailwindcss-language-server", "--stdio" },
-	filetypes = {
+	--[[ filetypes = {
 		"aspnetcorerazor",
 		"astro",
 		"astro-markdown",
@@ -47,12 +47,13 @@ require("lspconfig").tailwindcss.setup({
 		"typescriptreact",
 		"vue",
 		"svelte",
-	},
+	}, ]]
+	filetypes = { "svelte" },
 	init_options = {
-		userLanguages = {
+		--[[ userLanguages = {
 			eelixir = "html-eex",
 			eruby = "erb",
-		},
+		}, ]]
 	},
 	on_new_config = function(new_config)
 		if not new_config.settings then

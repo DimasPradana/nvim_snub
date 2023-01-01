@@ -12,6 +12,7 @@ require("mason-lspconfig").setup({
 	ensure_installed = {
 		"sumneko_lua",
 		"intelephense",
+		"tailwindcss",
 		-- "rust_analyzer",
 	},
 })

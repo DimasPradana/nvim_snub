@@ -1,4 +1,4 @@
-vim.cmd([[ packadd neo-tree ]])
+-- vim.cmd([[ packadd neo-tree ]])
 local highlights = require("neo-tree.ui.highlights")
 
 -- Unless you are still migrating, remove the deprecated commands from v1.x

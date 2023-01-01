@@ -58,7 +58,7 @@ vim.o.inccommand   = 'nosplit' -- Incremental live completion
 vim.o.fileencoding = "utf-8" -- Set File Encoding
 vim.o.spelllang    = "en"
 vim.o.completeopt  = "menu,menuone,noselect,noinsert,preview" -- Autocompletion
-vim.o.wrap         = false -- set no wrap
+vim.o.wrap         = true -- set no wrap
 vim.opt.shortmess:append { W = true, a = true }
 vim.o.undodir = vim.fn.stdpath("cache") .. "/undo"
 -- stylua: ignore end

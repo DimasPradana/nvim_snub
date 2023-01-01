@@ -22,9 +22,9 @@ return require("packer").startup(function(use)
 	}) -- }}} ]]
 
 	-- {{{ Filetype replacement
-	use({
+	--[[ use({
 		"nathom/filetype.nvim",
-	}) -- }}}
+	}) -- }}} ]]
 
 	-- {{{ vim motion case sensitive
 	use({
@@ -67,7 +67,7 @@ return require("packer").startup(function(use)
 	use({
 		-- "~/repos/neo-tree.nvim",
 		"nvim-neo-tree/neo-tree.nvim",
-		event = "BufRead",
+		-- event = "BufRead",
 		branch = "v2.x",
 		requires = {
 			"ThePrimeagen/harpoon", -- optional
@@ -136,7 +136,7 @@ return require("packer").startup(function(use)
 	-- {{{ lspconfig
 	use({
 		"neovim/nvim-lspconfig",
-		event = "BufRead",
+		-- event = "BufRead",
 		config = function()
 			require("plugins/lspconfig")
 		end,
@@ -775,10 +775,10 @@ return require("packer").startup(function(use)
 		},
 	})
 
-	use({
+	--[[ use({
 		"aduros/ai.vim",
 		config = function() end,
-	})
+	}) ]]
 	-- }}}
 
 	-- FIXME: nvim-lsp code_actions, diagnostics, hover, references, rename, signature, symbol_resolve, workspace_symbol not working yet
