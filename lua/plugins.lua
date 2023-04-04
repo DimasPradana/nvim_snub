@@ -762,7 +762,7 @@ return require("packer").startup(function(use)
 	}) -- }}}
 
 	-- {{{ chatGPT
-	use({
+	--[[ use({
 		"jackMort/ChatGPT.nvim",
 		config = function()
 			-- require("chatgpt").setup({
@@ -773,7 +773,7 @@ return require("packer").startup(function(use)
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope.nvim",
 		},
-	})
+	}) ]]
 
 	--[[ use({
 		"aduros/ai.vim",
